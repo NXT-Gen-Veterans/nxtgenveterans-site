@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 
-function Contact(props) {
+
+function Contact() {
   return (
     <div>Contact</div>
   )

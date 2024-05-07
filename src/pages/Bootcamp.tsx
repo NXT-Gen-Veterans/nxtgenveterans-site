@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 
-function Bootcamp(props) {
+
+function Bootcamp() {
   return (
     <div>Bootcamp</div>
   )
