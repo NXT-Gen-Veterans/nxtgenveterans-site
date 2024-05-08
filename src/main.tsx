@@ -5,12 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Layout from "./Layout.tsx";
-import About from "pages/About.tsx";
-import Bootcamp from "./pages/Bootcamp.tsx";
-import Contact from "./pages/Contact.tsx";
-import Home from "./pages/Home.tsx";
-import Resources from "./pages/Resources.tsx";
+import Layout from "pages/Layout.tsx";
+import About from "pages/About/About";
+import Bootcamp from "pages/Bootcamp/Bootcamp";
+import Contact from "pages/Contact/Contact";
+import Home from "pages/Home/Home";
+import Resources from "pages/Resources/Resources";
 
 
 const router = createBrowserRouter([
