@@ -1,5 +1,3 @@
-import "@testing-library/jest-dom";
-
 export default {
     testEnvironment: "jsdom",
     transform: {
@@ -9,6 +7,7 @@ export default {
     moduleNameMapper: {
         "\\.(css|less|sass|scss)$": "identity-obj-proxy",
         "^.+\\.svg$": "jest-transformer-svg",
+        "^@/(.*)$": "<rootDir>/src/$1",
     },
 
     setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"]

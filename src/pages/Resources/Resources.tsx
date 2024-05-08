@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 
-function Resources(props) {
+
+function Resources() {
   return (
     <div>Resources</div>
   )

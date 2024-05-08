@@ -25,9 +25,10 @@
     "paths": {
       "@/*": ["src/*"],
       "assets/*": ["src/assets/*"],
-      "pages/*": ["src/pages/*"]
+      "pages/*": ["src/pages/*"],
+      "store/*": ["src/store/*"],
     }
   },
-  "include": ["src"],
+  "include": ["src", "jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
