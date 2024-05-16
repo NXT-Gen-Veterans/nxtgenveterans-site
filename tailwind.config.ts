@@ -7,7 +7,14 @@ export default {
     './src/components/**/*.{html,ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"]
+      },
+      colors: {
+        "ngv-blue": "#020281"
+      }
+    },
   },
   plugins: [],
 } satisfies Config
