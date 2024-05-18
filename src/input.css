@@ -12,7 +12,7 @@
  
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #00000050;
+    background: #00000060;
 }
 
 /* Handle */
@@ -73,8 +73,5 @@
     }
     .link-sm {
         @apply font-medium text-xs;
-    }
-    .nav-blur {
-        @apply bg-white/40 backdrop-blur-sm text-black;
     }
 }

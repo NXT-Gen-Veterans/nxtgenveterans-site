@@ -2,9 +2,9 @@ import { useRef, useState } from "react";
 import { InlineWidget } from "react-calendly";
 
 type BookConsultationProps = {
-    handleToggleOpen: ()=>void;
-    isNav: boolean;
-    isNavOpen: boolean;
+    handleToggleOpen?: ()=>void;
+    isNav?: boolean;
+    isNavOpen?: boolean;
 }
 
 function BookConsultation(props: BookConsultationProps) {
@@ -12,7 +12,7 @@ function BookConsultation(props: BookConsultationProps) {
     const [isDialogOpen, setDialogOpen] = useState(false);
 
     function openConsultationModal() {
-        props.handleToggleOpen();
+        props.handleToggleOpen && props.handleToggleOpen();
         dialogRef.current?.showModal();
         setDialogOpen(true);
         document.body.style.overflow = "hidden";
