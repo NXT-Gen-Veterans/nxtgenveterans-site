@@ -45,7 +45,7 @@ function BookConsultation(props: BookConsultationProps) {
             </dialog>
 
             <button
-                className={`bg-white text-black px-4 py-2 rounded-xl body-btn w-fit ${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
+                className={`bg-white text-black px-4 py-2 rounded-xl body-btn w-fit shadow-md ${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
                 onClick={openConsultationModal}
             >Book Consultation</button>
         </>

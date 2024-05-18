@@ -594,11 +594,6 @@ h6 {
   font-weight: 500;
 }
 
-/* .nav-blur {
-        background-color: #ffffff20;
-        @apply backdrop:blur-sm text-black;
-    } */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -629,10 +624,6 @@ h6 {
 
 .relative {
   position: relative;
-}
-
-.sticky {
-  position: sticky;
 }
 
 .left-0 {
@@ -674,10 +665,6 @@ h6 {
 
 .h-0 {
   height: 0px;
-}
-
-.h-\[4\.5rem\] {
-  height: 4.5rem;
 }
 
 .h-dvh {
@@ -810,10 +797,6 @@ h6 {
   background-color: rgb(2 2 129 / var(--tw-bg-opacity));
 }
 
-.bg-transparent {
-  background-color: transparent;
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -821,25 +804,6 @@ h6 {
 
 .bg-white\/40 {
   background-color: rgb(255 255 255 / 0.4);
-}
-
-.bg-gradient-to-bl {
-  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
-}
-
-.from-ngv-blue {
-  --tw-gradient-from: #020281 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(2 2 129 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-fuchsia-700 {
-  --tw-gradient-to: rgb(162 28 175 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #a21caf var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-ngv-blue {
-  --tw-gradient-to: #020281 var(--tw-gradient-to-position);
 }
 
 .p-1 {
@@ -936,6 +900,12 @@ h6 {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .backdrop-blur-sm {
