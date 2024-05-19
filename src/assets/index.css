@@ -903,8 +903,8 @@ h6 {
   background-color: rgb(255 255 255 / 0.2);
 }
 
-.bg-\[url\(\'src\/assets\/hero-lg\.png\'\)\] {
-  background-image: url('src/assets/hero-lg.png');
+.bg-\[url\(\'\/assets\/hero\.png\'\)\] {
+  background-image: url('/assets/hero.png');
 }
 
 .bg-cover {
