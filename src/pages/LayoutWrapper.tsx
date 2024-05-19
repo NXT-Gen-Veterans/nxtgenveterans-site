@@ -1,9 +1,13 @@
-import "assets/index.css"
 import { ComponentType, ReactElement, useEffect, useRef } from 'react'
+import { useLocation } from "react-router-dom"
+
+import { useGlobalStore } from 'store';
+
 import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'
-import { useLocation } from "react-router-dom"
-import NewsLetter from "@/components/NewsLetter/NewsLetter"
+import NewsLetter from "components/NewsLetter/NewsLetter"
+
+import "assets/index.css"
 
 type LayoutWrapperProps = {
   ComponentPage: ComponentType<object>
@@ -12,6 +16,7 @@ type LayoutWrapperProps = {
 function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
   const {pathname} = useLocation();
   const pageRef = useRef<HTMLDivElement>(null);
+  const {setPageScrolled, isPageScrolled} = useGlobalStore();
 
   // Reset scroll position on navigation
   useEffect(() => {
@@ -19,10 +24,17 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
     if (pageRef.current) pageRef.current.scrollTop = 0;
   }, [pathname])
 
+  function handleScroll() {
+    if (pageRef.current) {
+      if (pageRef.current.scrollTop === 0 && isPageScrolled === true) setPageScrolled(false);
+      if (pageRef.current.scrollTop !== 0 && isPageScrolled === false) setPageScrolled(true);
+    }
+  }
+
   return (
-    <div ref={pageRef} className="relative font-inter h-dvh overflow-y-scroll">
+    <div ref={pageRef} onScroll={handleScroll} className="relative font-inter h-dvh overflow-y-scroll">
       <Navbar />
-      <div className=" pt-[4.5rem] lg:pt-24">
+      <div className="">
         <ComponentPage />
         {pathname != "/bootcamp" && <NewsLetter />}
         <Footer /> 
