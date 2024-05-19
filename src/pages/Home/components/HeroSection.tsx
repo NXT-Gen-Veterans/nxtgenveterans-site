@@ -5,7 +5,7 @@ function HeroSection() {
   return (
     <div className="bg-[url('/assets/hero.png')] bg-right-top lg:bg-center bg-cover bg-no-repeat h-fit w-full pt-[5.5rem] lg:pt-28 flex flex-col gap-4 lg:gap-8 px-4 md:px-6 lg:px-12 pb-8 lg:pb-12">
         <p className="sub-heading">Welcome to NXT Gen Veterans</p>
-        <h1 className="text-3xl lg:text-6xl flex flex-col gap-4 lg:gap-6">
+        <h1 className="text-3xl lg:text-6xl flex flex-col">
             <span className=" font-normal">You've served us,</span>
             now let us serve you
         </h1>
