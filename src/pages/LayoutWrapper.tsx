@@ -3,6 +3,7 @@ import { ComponentType, ReactElement, useEffect, useRef } from 'react'
 import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'
 import { useLocation } from "react-router-dom"
+import NewsLetter from "@/components/NewsLetter/NewsLetter"
 
 type LayoutWrapperProps = {
   ComponentPage: ComponentType<object>
@@ -23,6 +24,7 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
       <Navbar />
       <div className=" pt-[4.5rem] lg:pt-24">
         <ComponentPage />
+        {pathname != "/bootcamp" && <NewsLetter />}
         <Footer /> 
       </div>
     </div>
