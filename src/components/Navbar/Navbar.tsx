@@ -13,7 +13,7 @@ function Navbar() {
     }
 
     return (
-        <nav className={`fixed top-0 left-0 w-full flex justify-between lg:justify-evenly overflow-hidden bg-white/40 backdrop-blur-sm text-black lg:items-center ${isOpen ? "h-dvh lg:h-fit text-white lg:text-black" : "w-full h-fit items-center"}`}>
+        <nav className={`fixed top-0 left-0 z-20 w-full flex justify-between lg:justify-evenly overflow-hidden bg-white/50 backdrop-blur-[5px] text-black lg:items-center ${isOpen ? "h-dvh lg:h-fit text-white lg:text-black" : "w-full h-fit items-center"}`}>
             <NavLink className={``} to="/">
                 <img src={blackLogo} alt="logo" className={`ml-3 lg:m-0 w-14 xl:w-16 ${isOpen && "mt-2 lg:m-0"}`} />
             </NavLink>
