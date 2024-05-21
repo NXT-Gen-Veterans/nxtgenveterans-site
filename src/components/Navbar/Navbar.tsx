@@ -16,9 +16,13 @@ function Navbar() {
         setOpen(!isOpen);
     }
 
+    function handleLogoClick() {
+        if (isOpen) handleToggleOpen();
+    }
+
     return (
         <nav className={`fixed top-0 left-0 z-20 w-full flex justify-between lg:justify-evenly overflow-hidden text-black lg:items-center ${isOpen ? "h-dvh lg:h-fit text-white lg:text-black bg-white/20 lg:bg-transparent backdrop-blur-[15px] lg:backdrop-blur-0" : "w-full h-fit items-center"} ${isPageScrolled ? "!bg-white/20 !backdrop-blur-[15px]" : ""}`}>
-            <NavLink className={``} to="/">
+            <NavLink to="/" onClick={handleLogoClick}>
                 <img src={blackLogo} alt="logo" className={`ml-3 lg:m-0 w-14 xl:w-16 ${isOpen && "mt-2 lg:m-0"}`} />
             </NavLink>
             <div className={`transition-all ease-in-out w-3/4 md:w-3/5 lg:w-fit h-full lg:h-fit flex flex-col lg:flex-row justify-start lg:justify-evenly lg:items-center gap-14 lg:gap-20 xl:gap-40 p-3 md:px-5 overflow-y-scroll lg:overflow-y-hidden ${isOpen ? "pt-3 bg-ngv-blue lg:bg-transparent" : "translate-x-full mr-16 pointer-events-none lg:translate-x-0 lg:m-0 lg:pointer-events-auto"}`}>

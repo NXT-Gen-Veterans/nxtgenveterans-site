@@ -811,10 +811,6 @@ h6 {
   justify-content: space-between;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-10 {
   gap: 2.5rem;
 }
@@ -889,6 +885,10 @@ h6 {
   background-color: rgb(255 255 255 / 0.2) !important;
 }
 
+.bg-blue-100\/30 {
+  background-color: rgb(219 234 254 / 0.3);
+}
+
 .bg-ngv-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(2 2 129 / var(--tw-bg-opacity));
@@ -955,9 +955,9 @@ h6 {
   padding-right: 1.25rem;
 }
 
-.px-\[min\(25\%\2c 20rem\)\] {
-  padding-left: min(25%,20rem);
-  padding-right: min(25%,20rem);
+.px-\[min\(15\%\2c 10rem\)\] {
+  padding-left: min(15%,10rem);
+  padding-right: min(15%,10rem);
 }
 
 .py-1 {
@@ -1031,6 +1031,10 @@ h6 {
   line-height: 1.25rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -1069,6 +1073,10 @@ h6 {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.bg-blend-lighten {
+  background-blend-mode: lighten;
 }
 
 .shadow-md {
@@ -1419,6 +1427,10 @@ h6 {
   .lg\:text-black {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+
+  .lg\:bg-blend-normal {
+    background-blend-mode: normal;
   }
 
   .lg\:backdrop-blur-0 {

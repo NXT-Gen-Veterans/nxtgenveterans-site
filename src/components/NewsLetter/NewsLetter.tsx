@@ -2,7 +2,7 @@
 
 function NewsLetter() {
   return (
-    <div className="bg-white flex flex-col px-[min(25%,20rem)] md:px-[min(20%,38rem)] py-14 gap-8 items-center justify-center">
+    <div className="bg-white flex flex-col px-[min(15%,10rem)] md:px-[min(20%,38rem)] py-14 gap-8 items-center justify-center">
         <h6 className=" lg:text-3xl text-center">Sign up for our Newsletter</h6>
         <p className="text-center">
             Stay informed and connected by subscribing to our website! 
