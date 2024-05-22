@@ -5,6 +5,7 @@ type BookConsultationProps = {
     handleToggleOpen?: ()=>void;
     isNav?: boolean;
     isNavOpen?: boolean;
+    style?: string[];
 }
 
 function BookConsultation(props: BookConsultationProps) {
@@ -45,7 +46,7 @@ function BookConsultation(props: BookConsultationProps) {
             </dialog>
 
             <button
-                className={`bg-white text-black px-4 py-2 rounded-xl body-btn w-fit shadow-md ${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
+                className={`px-4 py-2 body-btn rounded-xl w-fit ${props.style || "bg-white text-black shadow-md"} ${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
                 onClick={openConsultationModal}
             >Book Consultation</button>
         </>

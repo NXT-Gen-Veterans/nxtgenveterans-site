@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <div className="bg-[url('/assets/hero.png')] bg-blue-100/30 bg-blend-lighten lg:bg-transparent lg:bg-blend-normal bg-right-top lg:bg-center bg-cover bg-no-repeat h-fit w-full pt-[5.5rem] lg:pt-28 flex flex-col gap-4 lg:gap-8 px-4 md:px-6 lg:px-12 pb-8 lg:pb-12">
-        <p className="sub-heading">Welcome to NXT Gen Veterans</p>
-        <h1 className="text-3xl lg:text-6xl flex flex-col">
-            <span className=" font-normal">You've served us,</span>
-            now let us serve you
-        </h1>
-        <p className="body-btn font-bold lg:sub-heading">We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!</p>
+    <div className="bg-[url('/assets/hero.png')] bg-blue-100/30 bg-blend-lighten lg:bg-transparent lg:bg-blend-normal bg-right-top lg:bg-center bg-cover bg-no-repeat h-fit w-full pt-24 pb-20 lg:py-32 flex flex-col gap-8 px-4 md:px-6 lg:px-12">
+        <div className="flex flex-col gap-4">
+          <p className="sub-heading">Welcome to NXT Gen Veterans</p>
+          <h2 className="!large-text">
+          {/* <h2 className="text-3xl lg:text-6xl flex flex-col"> */}
+              <span className="font-normal">You've served us,</span><br />
+              <span>now let us serve you</span>
+          </h2>
+          <p className="body-btn font-bold lg:sub-heading">We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!</p> 
+        </div>
         <div className="flex flex-col md:flex-row gap-5">
-            <Link to="/about" className="bg-ngv-blue text-white rounded-xl shadow-md px-4 py-2 body-btn w-fit">Find out more</Link>
-            <BookConsultation />        
+            <Link to="/about" className="text-black bg-white rounded-xl shadow-md px-4 py-2 body-btn w-fit">Find out more</Link>
+            <BookConsultation style={["bg-ngv-blue text-white"]} />        
         </div>
     </div>
   )
