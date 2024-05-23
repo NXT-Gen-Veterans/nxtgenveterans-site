@@ -12,7 +12,10 @@ export default {
         inter: ["Inter", "sans-serif"]
       },
       colors: {
-        "ngv-blue": "#020281"
+        "grad-blue": "#B5E3FF",
+        "light-hover": "#B0D4FF",
+        "ngv-blue": "#020281",
+        "ngv-hover": "#0202CC"
       }
     },
   },

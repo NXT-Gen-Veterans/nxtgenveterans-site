@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import { InlineWidget } from "react-calendly";
+import Button from "components/Button/Button";
 
 type BookConsultationProps = {
     handleToggleOpen?: ()=>void;
     isNav?: boolean;
     isNavOpen?: boolean;
-    style?: string[];
+    style?: string;
 }
 
 function BookConsultation(props: BookConsultationProps) {
@@ -45,10 +46,12 @@ function BookConsultation(props: BookConsultationProps) {
                 
             </dialog>
 
-            <button
-                className={`px-4 py-2 body-btn rounded-xl w-fit ${props.style || "bg-white text-black shadow-md"} ${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
+            <div
+                className={`${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
                 onClick={openConsultationModal}
-            >Book Consultation</button>
+            >
+                <Button style={props.style || undefined}>Book Consultation</Button>
+            </div>
         </>
     )
 }

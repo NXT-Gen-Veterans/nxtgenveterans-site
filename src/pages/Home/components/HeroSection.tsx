@@ -1,5 +1,5 @@
-import BookConsultation from "@/components/BookConsultation/BookConsultation";
-import { Link } from "react-router-dom";
+import BookConsultation from "components/BookConsultation/BookConsultation";
+import Button from "components/Button/Button";
 
 function HeroSection() {
   return (
@@ -7,15 +7,14 @@ function HeroSection() {
         <div className="flex flex-col gap-4">
           <p className="sub-heading">Welcome to NXT Gen Veterans</p>
           <h2 className="!large-text">
-          {/* <h2 className="text-3xl lg:text-6xl flex flex-col"> */}
               <span className="font-normal">You've served us,</span><br />
               <span>now let us serve you</span>
           </h2>
           <p className="body-btn font-bold lg:sub-heading">We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!</p> 
         </div>
         <div className="flex flex-col md:flex-row gap-5">
-            <Link to="/about" className="text-black bg-white rounded-xl shadow-md px-4 py-2 body-btn w-fit">Find out more</Link>
-            <BookConsultation style={["bg-ngv-blue text-white"]} />        
+            <Button link="/about">Find out more</Button>
+            <BookConsultation style={"bg-ngv-blue hover:bg-ngv-hover text-white"} />        
         </div>
     </div>
   )
