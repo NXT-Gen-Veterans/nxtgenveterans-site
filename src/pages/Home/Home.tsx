@@ -1,6 +1,7 @@
 import BannerSection from "./components/BannerSection"
 import HeroSection from "./components/HeroSection"
 import OfferSection from "./components/OfferSection"
+import PartnerSection from "./components/PartnerSection"
 import ServicesSection from "./components/ServicesSection"
 
 
@@ -12,6 +13,7 @@ function Home() {
       <ServicesSection />
       <OfferSection />
       <BannerSection />
+      <PartnerSection />
     </>
   )
 }
