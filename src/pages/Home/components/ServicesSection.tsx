@@ -1,5 +1,6 @@
 import BookConsultation from "@/components/BookConsultation/BookConsultation";
 import Button from "@/components/Button/Button";
+import { makeKey } from "store";
 
 type Service = {
     title: string;
@@ -64,7 +65,7 @@ function ServicesSection() {
             {
                 services.map((service, index) => (
                     <ServiceCard
-                        key={`${index}${Math.floor(Math.random()*9)}`}
+                        key={makeKey(service.title)}
                         service={service}
                         index={index}
                     />

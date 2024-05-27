@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { useGlobalStore } from "store";
+import { makeKey, useGlobalStore } from "store";
 
 import blackLogo from "assets/Logo/Black.png";
 import burgerIcon from "assets/burger-icon.svg";
@@ -34,7 +34,7 @@ function Navbar() {
                     {['home', 'about', 'contact', 'resources', 'bootcamp']
                         .map(tab => (
                             <NavLink 
-                                key={`${tab}${Math.floor(Math.random()*9)}`}
+                                key={makeKey(tab)}
                                 to={tab == "home" ? "/" : `/${tab}`}
                                 className={({ isActive }) => `w-fit body-btn capitalize lg:p-2 lg:px-3 hover:bg-white/10 ${isActive && "border-l-8 lg:border-l-0 lg:border-b-4 px-5 border-white lg:border-black"}`}
                                 onClick={handleToggleOpen}
