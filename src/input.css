@@ -96,9 +96,12 @@
         @apply font-medium text-xs;
     }
     .bg-btn-light {
-        @apply bg-white hover:bg-light-hover text-black
+        @apply bg-white hover:bg-light-hover text-black;
     }
     .bg-btn-dark {
         @apply bg-ngv-blue hover:bg-ngv-hover text-white
+    }
+    .bg-image {
+        @apply bg-center bg-cover bg-no-repeat;
     }
 }

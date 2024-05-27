@@ -690,6 +690,12 @@ h6 {
   background-color: rgb(2 2 204 / var(--tw-bg-opacity));
 }
 
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1111,6 +1117,10 @@ h6 {
 
 .bg-\[url\(\'\/assets\/hero\.png\'\)\] {
   background-image: url('/assets/hero.png');
+}
+
+.bg-\[url\(\'\/assets\/partner\.png\'\)\] {
+  background-image: url('/assets/partner.png');
 }
 
 .bg-gradient-to-bl {
@@ -1639,6 +1649,10 @@ h6 {
     width: min(40%,31rem);
   }
 
+  .lg\:w-\[min\(80\%\2c 80rem\)\] {
+    width: min(80%,80rem);
+  }
+
   .lg\:w-fit {
     width: -moz-fit-content;
     width: fit-content;
@@ -1720,6 +1734,10 @@ h6 {
 
   .lg\:p-2 {
     padding: 0.5rem;
+  }
+
+  .lg\:p-24 {
+    padding: 6rem;
   }
 
   .lg\:px-12 {
