@@ -728,6 +728,10 @@ h6 {
   position: relative;
 }
 
+.-bottom-\[6\.5rem\] {
+  bottom: -6.5rem;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -766,6 +770,18 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -784,6 +800,10 @@ h6 {
 
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -903,6 +923,11 @@ h6 {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-45 {
   --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -936,6 +961,10 @@ h6 {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-start {
@@ -986,6 +1015,10 @@ h6 {
   gap: 0.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -1000,6 +1033,10 @@ h6 {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.justify-self-start {
+  justify-self: start;
 }
 
 .overflow-hidden {
@@ -1058,8 +1095,16 @@ h6 {
   border-top-right-radius: 6.25rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-0 {
   border-width: 0px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-b-2 {
@@ -1070,9 +1115,18 @@ h6 {
   border-left-width: 8px;
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-gray-900\/30 {
+  border-color: rgb(17 24 39 / 0.3);
 }
 
 .border-white {
@@ -1091,6 +1145,11 @@ h6 {
 .bg-grad-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(181 227 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
 .bg-ngv-blue {
@@ -1113,6 +1172,14 @@ h6 {
 
 .bg-white\/40 {
   background-color: rgb(255 255 255 / 0.4);
+}
+
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-\[url\(\'\/assets\/contact\.png\'\)\] {
+  background-image: url('/assets/contact.png');
 }
 
 .bg-\[url\(\'\/assets\/hero\.png\'\)\] {
@@ -1173,6 +1240,18 @@ h6 {
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-12 {
+  padding: 3rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
 }
 
 .p-3 {
@@ -1246,8 +1325,20 @@ h6 {
   padding-bottom: 5rem;
 }
 
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
 .pr-7 {
   padding-right: 1.75rem;
+}
+
+.ps-5 {
+  padding-inline-start: 1.25rem;
 }
 
 .pt-12 {
@@ -1453,6 +1544,19 @@ h6 {
   }
 }
 
+.\[\&_\*\]\:body-btn * {
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+@media (min-width: 1024px) {
+  .\[\&_\*\]\:lg\:sub-heading * {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+  }
+}
+
 .open\:h-full[open] {
   height: 100%;
 }
@@ -1477,6 +1581,15 @@ h6 {
 
 .hover\:bg-white\/10:hover {
   background-color: rgb(255 255 255 / 0.1);
+}
+
+.hover\:text-ngv-hover:hover {
+  --tw-text-opacity: 1;
+  color: rgb(2 2 204 / var(--tw-text-opacity));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .focus\:border-blue-600:focus {
@@ -1571,6 +1684,10 @@ h6 {
     width: min(60%,35rem);
   }
 
+  .md\:w-\[min\(70\%\2c 50rem\)\] {
+    width: min(70%,50rem);
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1616,6 +1733,10 @@ h6 {
     pointer-events: auto;
   }
 
+  .lg\:-bottom-\[5\.675rem\] {
+    bottom: -5.675rem;
+  }
+
   .lg\:m-0 {
     margin: 0px;
   }
@@ -1647,6 +1768,10 @@ h6 {
 
   .lg\:w-\[min\(40\%\2c 31rem\)\] {
     width: min(40%,31rem);
+  }
+
+  .lg\:w-\[min\(45\%\2c 20rem\)\] {
+    width: min(45%,20rem);
   }
 
   .lg\:w-\[min\(80\%\2c 80rem\)\] {
@@ -1699,8 +1824,16 @@ h6 {
     gap: 8rem;
   }
 
+  .lg\:gap-5 {
+    gap: 1.25rem;
+  }
+
   .lg\:overflow-y-hidden {
     overflow-y: hidden;
+  }
+
+  .lg\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .lg\:rounded-\[2rem\] {

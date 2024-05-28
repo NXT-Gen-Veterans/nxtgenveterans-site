@@ -27,6 +27,10 @@ const router = createBrowserRouter([
     element: <LayoutWrapper ComponentPage={Contact} />,
   },
   {
+    path: "/contact/:type",
+    element: <LayoutWrapper ComponentPage={Contact} />,
+  },
+  {
     path: "/bootcamp",
     element: <LayoutWrapper ComponentPage={Bootcamp} />,
   },
