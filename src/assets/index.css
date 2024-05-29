@@ -818,6 +818,10 @@ h6 {
   display: none;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-0 {
   height: 0px;
 }
@@ -861,6 +865,10 @@ h6 {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-40 {
@@ -1115,6 +1123,10 @@ h6 {
   border-left-width: 8px;
 }
 
+.border-t-\[3\.25rem\] {
+  border-top-width: 3.25rem;
+}
+
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1134,8 +1146,17 @@ h6 {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-t-white\/30 {
+  border-top-color: rgb(255 255 255 / 0.3);
+}
+
 .\!bg-white\/20 {
   background-color: rgb(255 255 255 / 0.2) !important;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-blue-100\/30 {
@@ -1297,6 +1318,11 @@ h6 {
   padding-bottom: 0.25rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
@@ -1345,6 +1371,10 @@ h6 {
   padding-top: 3rem;
 }
 
+.pt-16 {
+  padding-top: 4rem;
+}
+
 .pt-24 {
   padding-top: 6rem;
 }
@@ -1373,6 +1403,10 @@ h6 {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.\!font-bold {
+  font-weight: 700 !important;
 }
 
 .font-bold {
@@ -1414,6 +1448,10 @@ h6 {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
@@ -1583,6 +1621,11 @@ h6 {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.hover\:text-light-hover:hover {
+  --tw-text-opacity: 1;
+  color: rgb(176 212 255 / var(--tw-text-opacity));
+}
+
 .hover\:text-ngv-hover:hover {
   --tw-text-opacity: 1;
   color: rgb(2 2 204 / var(--tw-text-opacity));
@@ -1665,6 +1708,18 @@ h6 {
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
+@media not all and (min-width: 1024px) {
+  .max-lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .max-lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:w-auto {
     width: auto;
@@ -1704,8 +1759,16 @@ h6 {
     align-items: flex-start;
   }
 
+  .md\:gap-20 {
+    gap: 5rem;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
+  }
+
+  .md\:p-5 {
+    padding: 1.25rem;
   }
 
   .md\:px-5 {
@@ -1766,12 +1829,24 @@ h6 {
     width: 16rem;
   }
 
+  .lg\:w-\[min\(100\%\2c 60rem\)\] {
+    width: min(100%,60rem);
+  }
+
   .lg\:w-\[min\(40\%\2c 31rem\)\] {
     width: min(40%,31rem);
   }
 
   .lg\:w-\[min\(45\%\2c 20rem\)\] {
     width: min(45%,20rem);
+  }
+
+  .lg\:w-\[min\(70\%\2c 65rem\)\] {
+    width: min(70%,65rem);
+  }
+
+  .lg\:w-\[min\(80\%\2c 65rem\)\] {
+    width: min(80%,65rem);
   }
 
   .lg\:w-\[min\(80\%\2c 80rem\)\] {
@@ -1820,6 +1895,10 @@ h6 {
     gap: 5rem;
   }
 
+  .lg\:gap-28 {
+    gap: 7rem;
+  }
+
   .lg\:gap-32 {
     gap: 8rem;
   }
@@ -1846,6 +1925,10 @@ h6 {
 
   .lg\:border-l-0 {
     border-left-width: 0px;
+  }
+
+  .lg\:border-t-\[4\.5rem\] {
+    border-top-width: 4.5rem;
   }
 
   .lg\:border-black {
@@ -1886,6 +1969,10 @@ h6 {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .lg\:pt-24 {
+    padding-top: 6rem;
   }
 
   .lg\:text-left {
