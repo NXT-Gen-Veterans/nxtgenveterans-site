@@ -36,7 +36,7 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
       <Navbar />
       <div className="">
         <ComponentPage />
-        {pathname != "/bootcamp" && <NewsLetter />}
+        {pathname == "/resources" ? "" : <NewsLetter />}
         <Footer /> 
       </div>
     </div>
