@@ -1146,12 +1146,12 @@ h6 {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-t-white\/30 {
-  border-top-color: rgb(255 255 255 / 0.3);
+.border-t-white\/50 {
+  border-top-color: rgb(255 255 255 / 0.5);
 }
 
-.\!bg-white\/20 {
-  background-color: rgb(255 255 255 / 0.2) !important;
+.\!bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5) !important;
 }
 
 .bg-black {
