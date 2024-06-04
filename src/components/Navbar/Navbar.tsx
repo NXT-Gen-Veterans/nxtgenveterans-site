@@ -21,7 +21,7 @@ function Navbar() {
     }
 
     return (
-        <nav className={`fixed top-0 left-0 z-20 w-full flex justify-between lg:justify-evenly overflow-hidden text-black lg:items-center ${isOpen ? "h-dvh lg:h-fit text-white lg:text-black bg-white/20 lg:bg-transparent backdrop-blur-[15px] lg:backdrop-blur-0" : "w-full h-fit items-center"} ${isPageScrolled ? "!bg-white/20 !backdrop-blur-[15px]" : ""}`}>
+        <nav className={`fixed top-0 left-0 z-20 w-full flex justify-between lg:justify-evenly overflow-hidden text-black lg:items-center ${isOpen ? "h-dvh lg:h-fit text-white lg:text-black bg-white/20 lg:bg-transparent backdrop-blur-[15px] lg:backdrop-blur-0" : "w-full h-fit items-center"} ${isPageScrolled ? "!bg-white/50 !backdrop-blur-[15px]" : ""}`}>
             <NavLink to="/" onClick={handleLogoClick}>
                 <img src={blackLogo} alt="logo" className={`ml-3 lg:m-0 w-14 xl:w-16 ${isOpen && "mt-2 lg:m-0"}`} />
             </NavLink>

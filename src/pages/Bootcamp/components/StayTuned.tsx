@@ -3,7 +3,7 @@ import { useGlobalStore } from "store"
 function StayTuned() {
     const isPageScrolled = useGlobalStore(state => state.isPageScrolled);
   return (
-    <div className={`bg-ngv-blue text-white h-fit w-full pb-20 lg:py-32 ${isPageScrolled ? "pt-24" : "pt-16 lg:pt-24 border-t-[3.25rem] lg:border-t-[4.5rem] border-t-white/30"} flex flex-col items-center gap-8 px-4 md:px-6 lg:px-12`}>
+    <div className={`bg-ngv-blue text-white h-fit w-full pb-20 lg:py-32 ${isPageScrolled ? "pt-24" : "pt-16 lg:pt-24 border-t-[3.25rem] lg:border-t-[4.5rem] border-t-white/50"} flex flex-col items-center gap-8 px-4 md:px-6 lg:px-12`}>
         <div className="text-center">
             <h2 className="">Stay Tuned!</h2>
             <p className="body-btn lg:sub-heading !font-bold">IT Bootcamp coming soon</p>
