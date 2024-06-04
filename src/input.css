@@ -9,15 +9,30 @@
     width: 10px;
     padding-inline: 5px;
 }
+
+.card-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    padding-inline: 15px;
+}
  
 /* Track */
 ::-webkit-scrollbar-track {
     background: #00000060;
 }
 
+.card-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    width: 10px
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #010420;
+}
+
+.card-scrollbar::-webkit-scrollbar-thumb {
+    background: #0d123d;
+    border-radius: 2rem;
 }
  
 /* Handle on hover */
