@@ -13,7 +13,7 @@ function Footer() {
                     <p>Proudly serving our heroes</p>
                     <p>We are a Virginia 501(c)3 nonprofit</p>
                 </div>
-                <BookConsultation />
+                <BookConsultation variant />
             </div>
             {/* Info Blocks */}
             <div className="flex flex-col lg:flex-row lg:justify-evenly lg:w-full gap-7">

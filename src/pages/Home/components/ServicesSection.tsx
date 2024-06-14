@@ -31,7 +31,7 @@ function ServiceCard({service, index}: ServiceCardProps) {
                         {service.btnText}
                     </Button>
                 ) : (
-                    <BookConsultation style="bg-btn-dark" />
+                    <BookConsultation />
                 )
             }
         </div>
