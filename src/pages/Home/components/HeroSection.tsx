@@ -1,22 +1,61 @@
+import { Link } from "react-router-dom";
+import { Box, Button, Typography } from "@mui/material";
 import BookConsultation from "components/BookConsultation/BookConsultation";
-import Button from "components/Button/Button";
 
 function HeroSection() {
   return (
-    <div className="bg-[url('/assets/hero.png')] bg-blue-100/30 bg-blend-lighten lg:bg-transparent lg:bg-blend-normal bg-right-top lg:bg-center bg-cover bg-no-repeat h-fit w-full pt-24 pb-20 lg:py-32 flex flex-col gap-8 px-4 md:px-6 lg:px-12">
-        <div className="flex flex-col gap-4">
-          <p className="sub-heading">Welcome to NXT Gen Veterans</p>
-          <h2 className="!large-text">
-              <span className="font-normal">You've served us,</span><br />
-              <span>now let us serve you</span>
-          </h2>
-          <p className="body-btn font-bold lg:sub-heading">We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!</p> 
-        </div>
-        <div className="flex flex-col md:flex-row gap-5">
-            <Button link="/about">Find out more</Button>
-            <BookConsultation style={"bg-ngv-blue hover:bg-ngv-hover text-white"} />        
-        </div>
-    </div>
+    <Box component="section" sx={{ 
+      backgroundImage: "url('/assets/hero.png')",
+      bgcolor: "rgb(219 234 254 / 0.3)", // light blue
+      backgroundBlendMode: "lighten",
+      backgroundPosition: "right",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+     }}>
+      <Box sx={theme => ({
+        px: "1.5rem",
+        py: "4rem",
+        [theme.breakpoints.up('lg')]: {
+          px: "3rem",
+          py: "6rem",
+        },
+        display: "flex",
+        flexDirection: "column",
+
+      })}>
+        <Typography variant="subtitle2" component="span">
+          Welcome to NXT Gen Veterans
+        </Typography>
+
+        <Box component="div" sx={{ marginBlock: "1rem" }}>
+          <Typography variant="h3" component="h2">
+            You've served us,
+          </Typography>
+
+          <Typography variant="h3" component="h2" fontWeight="bold">
+            now let us serve you
+          </Typography>
+        </Box>
+
+        <Typography variant="subtitle1" component="span">
+          We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!
+        </Typography>
+
+        <Box sx={theme => ({
+          display: "flex",
+          flexDirection: "column",
+          [theme.breakpoints.up('sm')]: {
+            flexDirection: "row",
+            justifyContent: "start",
+          },
+          gap: "1.25rem",
+          my: "1.25rem",
+        })}>
+          <Button variant="contained" component={Link} to="/about" color="secondary">Find out more</Button>
+          <BookConsultation />
+        </Box>
+      </Box>
+    </Box>
   )
 }
 

@@ -1,59 +1,53 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { InlineWidget } from "react-calendly";
-import Button from "components/Button/Button";
 
-type BookConsultationProps = {
-    handleToggleOpen?: ()=>void;
-    isNav?: boolean;
-    isNavOpen?: boolean;
-    style?: string;
+import CloseIcon from "@mui/icons-material/Close";
+import { Button, ButtonProps, Dialog, DialogContent, IconButton } from "@mui/material";
+
+interface BookConsultationProps {
+    variant?: boolean;
 }
 
-function BookConsultation(props: BookConsultationProps) {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-    const [isDialogOpen, setDialogOpen] = useState(false);
+export default function BookConsultation(props: BookConsultationProps) {
+    const style = props.variant ? {color: "secondary"} as ButtonProps : null;
 
-    function openConsultationModal() {
-        props.handleToggleOpen && props.handleToggleOpen();
-        dialogRef.current?.showModal();
+    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const handleDialogOpen = () => {
         setDialogOpen(true);
-        document.body.style.overflow = "hidden";
     }
-    
-    function closeConsultationModal() {
-        dialogRef.current?.close();
+
+    const handleDialogClose = () => {
         setDialogOpen(false);
-        document.body.style.overflow = "unset";
     }
-    
+
     return (
         <>
-            <dialog className="absolute top-0 left-0 open:w-full open:h-full lg:open:w-[min(95dvw,85rem)] lg:open:h-[90%] lg:open:max-h-[90%] open:rounded-xl [user-select:none] pointer-events-auto" ref={dialogRef}>
-                <div 
-                    className="pr-7 pt-4 absolute right-0 top-0"
-                    onClick={closeConsultationModal}
-                >
-                    <p className="p-1 pb-2 bg-white rounded-full flex justify-center items-center cursor-pointer text-4xl [line-height:1rem] rotate-45">+</p>
-                    <p className="sr-only">Close modal</p>
-                </div>
-                <InlineWidget
-                    url="https://calendly.com/nxtgenveterans/veteran-consultation?primary_color=020281"
-                    styles={{
-                        height: "100%",
-                        width: "100%",
+            <Button variant="contained" {...style} onClick={handleDialogOpen}>
+                Book Consultation
+            </Button>
+            <Dialog open={dialogOpen} fullWidth={true} maxWidth="md">
+                <IconButton
+                    aria-label="close"
+                    onClick={handleDialogClose}
+                    sx={{
+                        position: "absolute",
+                        left: 8,
+                        top: 8,
                     }}
-                />
-                
-            </dialog>
-
-            <div
-                className={`${props.isNav && ((props.isNavOpen && !isDialogOpen) ? "opacity-100 w-fit h-fit pointer-events-auto" : (!props.isNavOpen && !isDialogOpen) ? "hidden lg:block" : "opacity-0 w-0 h-0 pointer-events-none")}`}
-                onClick={openConsultationModal}
-            >
-                <Button style={props.style || undefined}>Book Consultation</Button>
-            </div>
+                >
+                    <CloseIcon />
+                </IconButton>
+                <DialogContent sx={{ height: "90dvh" }}>
+                    <InlineWidget
+                        url="https://calendly.com/nxtgenveterans/veteran-consultation?primary_color=020281"
+                        styles={{
+                            height: "100%",
+                            width: "100%",
+                        }}
+                    />
+                </DialogContent>
+            </Dialog>
         </>
     )
 }
-
-export default BookConsultation
