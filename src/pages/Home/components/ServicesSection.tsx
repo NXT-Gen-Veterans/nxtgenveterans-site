@@ -1,5 +1,5 @@
 import BookConsultation from "@/components/BookConsultation/BookConsultation";
-import Button from "@/components/Button/Button";
+import Button from "components/Button/Button";
 import { makeKey } from "store";
 
 type Service = {
@@ -27,7 +27,7 @@ function ServiceCard({service, index}: ServiceCardProps) {
             <p className="font-bold lg:body-btn">{service.title}</p>
             { 
                 service.btnUrl && service.btnText ? (
-                    <Button link={service.btnUrl} style="bg-btn-dark">
+                    <Button link={service.btnUrl}>
                         {service.btnText}
                     </Button>
                 ) : (

@@ -18,7 +18,7 @@ function PartnerSection() {
                 fosters a brighter future for those who have served. 
                 We would love to get in touch with you to make this happen.
             </p>
-            <Button link="/contact/partner">Get in touch</Button>
+            <Button link="/contact/partner" variant>Get in touch</Button>
         </div>
     </div>
     )
