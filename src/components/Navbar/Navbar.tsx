@@ -2,27 +2,18 @@ import { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { makeKey, useGlobalStore, RouteType } from "store";
-import blackLogo from "assets/Logo/Black.png";
+import LogoLink from "components/LogoLink/LogoLink";
 import BookConsultation from "components/BookConsultation/BookConsultation";
 
 import MenuCloseIcon from "@mui/icons-material/ChevronRight";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { AppBar, Backdrop, Drawer, IconButton, Link, List, ListItem, ListItemText, Tab, Tabs, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, Backdrop, Drawer, IconButton, List, ListItem, ListItemText, Tab, Tabs, Toolbar, useMediaQuery } from "@mui/material";
 
 function a11yProps(route: RouteType) {
     return {
         id: `${route}-tab`,
         'aria-controls': `${route}-panel`,
     }
-}
-
-function LogoLink() {
-    const { setNavTabValue } = useGlobalStore(state => state);
-    return (
-        <Link component={NavLink} to="/" onClick={() => {setNavTabValue("home")}}>
-            <img src={blackLogo} alt="logo" className={`w-14 lg:w-16`} />
-        </Link>
-    )
 }
 
 function Navbar() {

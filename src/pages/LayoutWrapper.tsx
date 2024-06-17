@@ -1,7 +1,7 @@
 import { ComponentType, ReactElement, useEffect, useRef } from 'react'
 import { useLocation } from "react-router-dom"
 
-import { useGlobalStore } from 'store';
+import { RouteType, useGlobalStore } from 'store';
 
 import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'
@@ -19,13 +19,24 @@ type LayoutWrapperProps = {
 function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
   const {pathname} = useLocation();
   const pageRef = useRef<HTMLDivElement>(null);
-  const {setPageScrolled, isPageScrolled, navTabValue} = useGlobalStore(state => state);
+  const {setPageScrolled, isPageScrolled, navTabValue, setNavTabValue} = useGlobalStore(state => state);
 
   // Reset scroll position on navigation
   useEffect(() => {
     window.scrollTo(0,0);
     if (pageRef.current) pageRef.current.scrollTop = 0;
   }, [pathname])
+
+  // Change nav tab value on route change
+  useEffect(() => {
+    setNavTabValue(
+      pathname === "/" ?
+      "home"
+      : (["home", "about", "contact", "bootcamp", "resources"] as RouteType[]).filter(route => (
+        pathname.includes(route)
+      ))[0]
+    )
+  }, [pathname, setNavTabValue])
 
   function handleScroll() {
     if (pageRef.current) {
