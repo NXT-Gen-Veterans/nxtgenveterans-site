@@ -9,7 +9,7 @@ import NewsLetter from "components/NewsLetter/NewsLetter"
 
 import "assets/index.css"
 
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider, useMediaQuery } from "@mui/material";
 import { globalTheme } from './themes';
 
 type LayoutWrapperProps = {
@@ -19,7 +19,10 @@ type LayoutWrapperProps = {
 function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
   const {pathname} = useLocation();
   const pageRef = useRef<HTMLDivElement>(null);
-  const {setPageScrolled, isPageScrolled, navTabValue, setNavTabValue} = useGlobalStore(state => state);
+  const {setPageScrolled, isPageScrolled, navTabValue, setNavTabValue, setScreenValue} = useGlobalStore(state => state);
+  const largeScreen = useMediaQuery("(min-width:1024px)");
+  const tabletScreen = useMediaQuery("(min-width:768px)");
+
 
   // Reset scroll position on navigation
   useEffect(() => {
@@ -38,6 +41,14 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
     )
   }, [pathname, setNavTabValue])
 
+  // Set the viewport width globally
+  useEffect(() => {
+    if (largeScreen) { setScreenValue("lg") }
+    else if (tabletScreen) { setScreenValue("md") }
+    else { setScreenValue("sm") }
+  }, [largeScreen, tabletScreen, setScreenValue])
+
+  // Handle page scroll state for navbar aesthetic effects
   function handleScroll() {
     if (pageRef.current) {
       if (pageRef.current.scrollTop === 0 && isPageScrolled === true) setPageScrolled(false);
