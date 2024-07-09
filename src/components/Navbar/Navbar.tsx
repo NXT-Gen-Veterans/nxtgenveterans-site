@@ -7,7 +7,7 @@ import BookConsultation from "components/BookConsultation/BookConsultation";
 
 import MenuCloseIcon from "@mui/icons-material/ChevronRight";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { AppBar, Backdrop, Drawer, IconButton, List, ListItem, ListItemText, Tab, Tabs, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, Backdrop, Drawer, IconButton, List, ListItem, ListItemText, Tab, Tabs, Toolbar } from "@mui/material";
 
 function a11yProps(route: RouteType) {
     return {
@@ -17,9 +17,8 @@ function a11yProps(route: RouteType) {
 }
 
 function Navbar() {
-    const isMobile = useMediaQuery("(max-width:1024px)");
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const {isPageScrolled, navTabValue, setNavTabValue} = useGlobalStore(state => state);
+    const {isPageScrolled, navTabValue, screen, setNavTabValue} = useGlobalStore(state => state);
     
     const routes: RouteType[] = ['home', 'about', 'contact', 'resources', 'bootcamp'];
 
@@ -44,7 +43,7 @@ function Navbar() {
     }
 
     return (
-        isMobile ? (
+        screen != "lg" ? (
             <>
             <AppBar position="fixed" sx={navStyles}>
                 <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -68,7 +67,7 @@ function Navbar() {
                 PaperProps={{
                     sx: {
                         bgcolor: "#020281",
-                        width: "50dvw",
+                        width: "min(70dvw,20rem)",
                         padding: "1rem",
                         alignItems: "start",
                         gap: "2rem",
