@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import { InlineWidget } from "react-calendly";
 
 import CloseIcon from "@mui/icons-material/Close";
-import { Button, ButtonProps, Dialog, DialogContent, IconButton } from "@mui/material";
+import { AppBar, Button, ButtonProps, Dialog, DialogContent, IconButton, Slide, Toolbar } from "@mui/material";
+import { TransitionProps } from '@mui/material/transitions';
+import { H2 } from "../Headings/Headings";
+
+const Transition = forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 interface BookConsultationProps {
     variant?: boolean;
@@ -26,19 +37,29 @@ export default function BookConsultation(props: BookConsultationProps) {
             <Button variant="contained" {...style} onClick={handleDialogOpen}>
                 Book Consultation
             </Button>
-            <Dialog open={dialogOpen} fullWidth={true} maxWidth="md">
-                <IconButton
-                    aria-label="close"
-                    onClick={handleDialogClose}
-                    sx={{
-                        position: "absolute",
-                        left: 8,
-                        top: 8,
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
-                <DialogContent sx={{ height: "90dvh" }}>
+            <Dialog
+                open={dialogOpen}
+                fullScreen
+                onClose={handleDialogClose}
+                TransitionComponent={Transition}
+            >
+                <AppBar sx={{ position: "relative", bgcolor: "white", color: "black" }}>
+                    <Toolbar>
+                        <H2>Book a Consultation</H2>
+                        <IconButton
+                            aria-label="close"
+                            edge="end"
+                            onClick={handleDialogClose}
+                            sx={{
+                                position: "absolute",
+                                right: { xs:16, sm:24 },
+                            }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </Toolbar>
+                </AppBar>
+                <DialogContent sx={{ p:0 }}>
                     <InlineWidget
                         url="https://calendly.com/nxtgenveterans/veteran-consultation?primary_color=020281"
                         styles={{
