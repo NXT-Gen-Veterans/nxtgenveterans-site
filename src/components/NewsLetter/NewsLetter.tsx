@@ -1,12 +1,18 @@
-import { Container, Typography, Box, TextField, Button, Grid } from '@mui/material';
+import { Box, Grid, Stack, TextField, Typography } from '@mui/material';
+import Button from 'components/Button/Button';
+import { H2 } from '../Headings/Headings';
 
 function NewsLetter() {
   return (
-    <Box sx={{ bgcolor: 'white', py: 7 }}>
-      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, px: { xs: '10%', md: '20%' } }}>
-        <Typography variant="h6" align="center" sx={{ fontSize: { lg: '1.75rem' } }}>
+    <Box component="section" sx={{ bgcolor: 'white', py: 7 }}>
+      <Stack
+        alignItems='center'
+        gap={4}
+        px={{ xs: '10%', md: 'min(10rem,20%)' }}
+      >
+        <H2>
           Sign up for our Newsletter
-        </Typography>
+        </H2>
         <Typography align="center">
           Stay informed and connected by subscribing to our website! Receive monthly newsletters filled with the latest news, events, and updates directly to your inbox. Don't miss out on important information that can benefit you on your journey. Subscribe now and stay in the loop!
         </Typography>
@@ -41,13 +47,13 @@ function NewsLetter() {
               />
             </Grid>
           </Grid>
-          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-            <Button type="submit" variant="contained" color="primary">
+          <Box mt={4} display='flex' justifyContent='center'>
+            <Button type="submit">
               Sign up
             </Button>
           </Box>
         </Box>
-      </Container>
+      </Stack>
     </Box>
   );
 }
