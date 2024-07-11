@@ -6,7 +6,7 @@ import BookConsultation from 'components/BookConsultation/BookConsultation';
 
 const Footer: React.FC = () => {
   return (
-    <Box sx={{ width: '100%', bgcolor: 'primary.main', color: 'white', py: 3 }}>
+    <Box component="footer" sx={{ width: '100%', bgcolor: 'primary.main', color: 'white', py: 3 }}>
       <Container maxWidth="lg">
         <Grid container spacing={5} justifyContent="center" alignItems="flex-start">
           {/* Company ID */}

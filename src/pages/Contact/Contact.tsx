@@ -1,5 +1,7 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import ContactForm, { ContactFormType } from "./components/ContactForm"
+import { Link, Stack, Typography } from "@mui/material";
+import { H2 } from "@/components/Headings/Headings";
 
 function Contact() {
   let { type } = useParams();
@@ -9,20 +11,34 @@ function Contact() {
   const formType: ContactFormType = (type === "Volunteer" || type === "Partner") ? type : "General";
 
   return (
-    <div className="bg-[url('/assets/contact.png')] bg-image h-fit w-full pt-24 pb-20 lg:py-32 flex flex-col items-center justify-center gap-8 px-4 md:px-6 lg:px-12">
-      <h2 className=" text-center">We'd love to hear from you</h2>
+    <Stack
+      component="section"
+      sx={{
+        backgroundImage: 'url(/assets/contact.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: { xs: '1000px', md: '900px' },
+        width: '100%',
+        textAlign: 'center',
+        pt: { xs: 12, md: 16 },
+        pb: { xs: 8, md: 12 },
+        px: { xs: 2, sm: 3, md: 6 },
+      }}
+      spacing={{ xs: 6, md: 8 }}
+      alignItems="center"
+    >
+      <H2>We'd love to hear from you!</H2>
       <ContactForm type={formType} />
-      <div className=" text-black flex flex-col items-center justify-center text-center body-btn lg:sub-heading">
-        <div className="flex lg:gap-5 flex-col lg:flex-row">
-          <Link className="hover:text-ngv-hover hover:underline" to="tel:+18047188630">+1 (804) 718 8630</Link>
-          <Link className="hover:text-ngv-hover hover:underline" to="mailto:nxtgenveterans@gmail.com">nxtgenveterans@gmail.com</Link>
-        </div>
-        <span className="">Headquarters in Leesburg, Virginia</span>
-      </div>
-    </div>
+      <Stack alignItems="center" justifyContent="center">
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ md: 2 }} alignItems="center" justifyContent="center">
+          <Link href="tel:+18047188630" target="_blank" rel="noopener noreferrer">+1 (804) 718 8630</Link>
+          <Link href="mailto:nxtgenveterans@gmail.com" target="_blank" rel="noopener noreferrer">nxtgenveterans@gmail.com</Link>
+        </Stack>
+        <Typography fontWeight={'medium'}>Headquarters in Leesburg, Virginia</Typography>
+      </Stack>
+    </Stack>
   )
 }
-
-Contact.propTypes = {}
 
 export default Contact
