@@ -1,75 +1,138 @@
-import Button from "components/Button/Button"
-import { makeKey } from "store";
+import { H2 } from '@/components/Headings/Headings';
+import { Box, colors, Stack, Typography, useTheme } from '@mui/material';
+import Button from "components/Button/Button";
+import { makeKey, useGlobalStore } from "store";
 
 type Position = "tl" | "tr" | "bl" | "br";
 
 type DecorativeDivProps = {
-    withImage?: boolean;
-    imageAlt?: string;
-    position: Position;
-}
+  withImage?: boolean;
+  imageAlt?: string;
+  position: Position;
+};
 
-function DecorativeDiv({withImage, imageAlt, position}: DecorativeDivProps) {
-    const sizeAndBorderStyle = position === "tl"
-        ? "bg-grad-blue rounded-tl-[6.25rem] rounded-br-[1.25rem] w-[11.25rem] h-[11.25rem]"
-        : position === "tr"
-        ? "bg-grad-blue p-1 rounded-tr-[6.25rem] rounded-bl-[1.25rem] w-[14.375rem] h-[14.375rem]"
-        : position === "bl"
-        ? "bg-ngv-blue p-1 rounded-bl-[6.25rem] rounded-tr-[1.25rem] w-[13.75rem] h-[13.75rem]"
-        : position === "br"
-        ? "bg-ngv-blue rounded-br-[6.25rem] rounded-tl-[1.25rem] w-[12.5rem] h-[12.5rem]"
-        : "";
+const DecorativeDiv = ({ withImage, imageAlt, position }: DecorativeDivProps) => {
+  const theme = useTheme();
+  const sizeAndBorderStyle = position === "tl"
+    ? {
+      backgroundColor: colors.blue[100],
+      borderRadius: '6.25rem 0 1.25rem 0',
+      width: '11.25rem',
+      height: '11.25rem',
+    } : position === "tr"
+    ? {
+      backgroundColor: colors.blue[100],
+      borderRadius: '0 6.25rem 0 1.25rem',
+      border: `.25rem solid ${colors.blue[100]}`,
+      width: '14.375rem',
+      height: '14.375rem',
+    } : position === "bl"
+    ? {
+      backgroundColor: theme.palette.primary.main,
+      borderRadius: '0 1.25rem 0 6.25rem',
+      border: `.25rem solid ${theme.palette.primary.main}`,
+      width: '13.75rem',
+      height: '13.75rem',
+    } : position === "br"
+    ? {
+      backgroundColor: theme.palette.primary.main,
+      borderRadius: '1.25rem 0 6.25rem 0',
+      width: '12.5rem',
+      height: '12.5rem',
+    } : {};
 
-    return (
-        <div className={`${sizeAndBorderStyle}`}>
-            {withImage ? (
-                <img
-                    src={`/assets/nxtstep-${position}.png`}
-                    alt={imageAlt}
-                    className={`[border-radius:inherit] w-full h-full`}
-                />
-            ) : ("")}
-        </div>
-    )
-}
+  return (
+    <Box sx={{ ...sizeAndBorderStyle }} display="flex" justifyContent="center" alignItems="center">
+      {withImage ? (
+        <img
+          src={`/assets/nxtstep-${position}.png`}
+          alt={imageAlt}
+          style={{ borderRadius: 'inherit', width: '100%', height: '100%' }}
+        />
+      ) : ("")}
+    </Box>
+  );
+};
 
 function OfferSection() {
-    const positions: Position[] = ["tl", "tr", "bl", "br"];
+  const largeScreen = useGlobalStore(state => state.screen) == "lg";
+  const positions: Position[] = ["tl", "tr", "bl", "br"];
 
-    function handleRenderDecorativeDivs(position:Position) {
-        return (
-            <DecorativeDiv
-                key={makeKey(position)}
-                withImage={position === "tr" || position === "bl"}
-                position={position}
-            />
-        )
-    }
-
+  const handleRenderDecorativeDivs = (position: Position) => {
     return (
-        <div className="bg-white/40 bg-gradient-to-bl lg:bg-gradient-to-b from-ngv-blue to-grad-blue bg-blend-overlay flex justify-center items-center px-10 py-14 xl:p-24 lg:gap-12 xl:gap-20 select-none">
-            <div className="w-[34.375rem] px-10 hidden lg:flex flex-col gap-5 justify-center items-center">
-                <div className="flex gap-5 w-full justify-end items-end">
-                { positions.slice(0,2).map(handleRenderDecorativeDivs) }
-                </div>
-                <div className="flex gap-5 w-full justify-start items-start">
-                { positions.slice(2).map(handleRenderDecorativeDivs) }
-                </div>
-            </div>
-            <div className="md:w-4/5 lg:w-[min(40%,31rem)] flex flex-col gap-10 items-center lg:items-start text-center lg:text-left">
-                <h2 className="">Let us be your next step</h2>
-                <p className="">
-                    We are dedicated to providing the most up-to-date educational tools 
-                    and resources for the men and women who have served our country, 
-                    helping them transition into the civilian workforce with ease and at no cost. 
-                    We aim to make our resources easily accessible and free of charge, 
-                    as a tribute and gesture of gratitude for their sacrifices. 
-                    We are truly grateful and thankful for their service.
-                </p>
-                <Button link="/contact" style="bg-btn-dark">Get in touch</Button>
-            </div>
-        </div>
-    )
+      <DecorativeDiv
+        key={makeKey(position)}
+        withImage={position === "tr" || position === "bl"}
+        position={position}
+      />
+    );
+  };
+
+  return (
+    <Stack
+      component="section"
+      sx={theme => ({
+        background: 'rgba(255, 255, 255, 0.4)',
+        backgroundBlendMode: 'overlay',
+        backgroundImage: `linear-gradient(to ${largeScreen ? "bottom" : "bottom left"}, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+        py: 7,
+        px: 5,
+        p: { xl: 12 },
+        userSelect: 'none',
+      })}
+      direction={'row'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      spacing={{ lg: 6, xl: 10 }}
+    >
+      <Stack
+        sx={{
+          display: { xs: "none", lg: "flex" },
+        }}
+        justifyContent={"center"}
+        alignItems={"center"}
+        spacing={2.5}
+        width={"34.375rem"}
+        px={5}
+      >
+        <Box
+          display={"flex"}
+          gap={2.5}
+          width={"100%"}
+          justifyContent={"end"}
+          alignItems={"end"}
+        >
+        { positions.slice(0,2).map(handleRenderDecorativeDivs) }
+        </Box>
+        <Box
+          display={"flex"}
+          gap={2.5}
+          width={"100%"}
+          justifyContent={"start"}
+          alignItems={"start"}
+        >
+        { positions.slice(2).map(handleRenderDecorativeDivs) }
+        </Box>
+      </Stack>
+      <Stack
+        width={{
+          md: "80%",
+          lg: "min(40%,31rem)"
+        }}
+        alignItems={{ xs: 'center', lg: 'start' }}
+        textAlign={{ xs: 'center', lg: 'left' }}
+        gap={5}
+      >
+        <H2>Let us be your next step</H2>
+        <Typography>
+          We are dedicated to providing the most up-to-date educational tools and resources for the men and women who have served our country,
+          helping them transition into the civilian workforce with ease and at no cost. We aim to make our resources easily accessible and free of charge,
+          as a tribute and gesture of gratitude for their sacrifices. We are truly grateful and thankful for their service.
+        </Typography>
+        <Button link="/contact">Get in touch</Button>
+      </Stack>
+    </Stack>
+  );
 }
 
-export default OfferSection
+export default OfferSection;

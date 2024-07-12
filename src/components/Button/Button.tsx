@@ -1,22 +1,29 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { Button as MaterialButton, ButtonProps as MaterialButtonProps } from "@mui/material";
 
-type ButtonProps = {
-    children: ReactNode;
-    style?: string;
-    supplement?: string;
-    link?: string;
+type ButtonTypes = "submit" | "button" | "reset";
+
+interface ButtonProps {
+  variant?: boolean;
+  link?: string;
+  type?: ButtonTypes;
+  children: ReactNode;
 }
 
 function Button(props: ButtonProps) {
-  return props.link ? (
-    <Link to={props.link} className={`px-4 py-2 body-btn rounded-xl w-fit shadow-md ${props.supplement || ""}${props.style || "bg-btn-light"}`}>
-        {props.children}
-    </Link>
-  ) : (
-    <button className={`px-4 py-2 body-btn rounded-xl w-fit shadow-md ${props.supplement || ""}${props.style || "bg-btn-light"}`}>
-        {props.children}
-    </button>
+  const variant = props.variant ? {color: "secondary"} as MaterialButtonProps : null;
+  const link = props.link ? {
+    component: Link, 
+    to: props.link,
+  } as MaterialButtonProps : props.type ?
+  {type: props.type} : null;
+
+
+  return (
+    <MaterialButton variant="contained" {...variant} {...link}>
+      {props.children}
+    </MaterialButton>
   )
 }
 

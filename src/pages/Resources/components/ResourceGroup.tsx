@@ -1,27 +1,71 @@
 import ResourceCard from "./ResourceCard";
 import { ResourceGroupType } from "../data/resourceInfo";
-import filledcaret from "assets/filled-caret.svg"
 import { makeKey } from "store";
+import { Accordion, AccordionDetails, AccordionSummary, Stack } from "@mui/material";
+import { ArrowDropDown } from "@mui/icons-material";
+import { H3 } from "@/components/Headings/Headings";
+import { SyntheticEvent } from "react";
 
-function ResourceGroup({title, bgImage, cards}: ResourceGroupType) {
+interface ResourceGroupComponentType extends ResourceGroupType {
+  toggleExpanded: (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => void;
+  expanded: string | boolean;
+}
+
+function ResourceGroup({title, bgImage, cards, toggleExpanded, expanded}: ResourceGroupComponentType) {
   return (
-    <details className="bg-ngv-blue rounded-3xl lg:rounded-[3rem] lg:open:rounded-[2.25rem] [&>div]:lg:open:rounded-b-[2.25rem] outline-none [&_img]:open:rotate-180 text-white w-full md:w-[min(70%,60rem)]">
-        <summary className="flex justify-between px-5 py-3 lg:px-10 lg:py-5 cursor-pointer">
-            <h4 className="max-md:!sub-heading md:!text-2xl !font-bold">{title}</h4>
-            <img src={filledcaret} alt="" className=" w-4 md:w-5" />
-        </summary>
-        <div className="border-2 border-ngv-blue rounded-b-3xl lg:rounded-b-[3rem] p-5 lg:p-10 bg-white text-black flex flex-wrap items-center justify-between gap-5 lg:gap-10">
-            {cards.map(card => (
-                <ResourceCard
-                    key={makeKey(card.title)}
-                    title={card.title}
-                    link={card.link}
-                    description={card.description}
-                    bgImage={bgImage}
-                />
-            ))}
-        </div>
-    </details>
+    <Accordion
+      disableGutters
+      onChange={toggleExpanded(title)}
+      expanded={expanded === title}
+      sx={{
+        width: { xs: '100%', sm: 'min(70%, 60rem)' },
+        color: 'secondary.main',
+        borderRadius: '1.2rem',
+        "&::before": {
+          display: 'none',
+        },
+        "&:last-child, &:first-of-type": {
+          borderRadius: '1.2rem',
+        },
+      }}
+    >
+      <AccordionSummary
+        expandIcon={<ArrowDropDown color="secondary" fontSize="large" />}
+        aria-controls={`${title}-group`}
+        id={`${title}-header`}
+        sx={{
+          bgcolor: 'primary.main',
+          borderRadius: expanded === title ? '1.2rem 1.2rem 0 0' : '1.2rem',
+        }}
+      >
+        <H3>{title}</H3>
+      </AccordionSummary>
+      <AccordionDetails sx={{
+        border: '2px solid',
+        borderColor: 'primary.main',
+        borderRadius: '0 0 1.2rem 1.2rem',
+      }}>
+        <Stack
+          direction={'row'}
+          flexWrap={'wrap'}
+          spacing={{ xs: 2.5, md: 5 }}
+          p={{ xs: 2.5, md: 5 }}
+          useFlexGap
+          justifyContent={'center'}
+          alignItems={'space-between'}
+        >
+          {cards.map(card => (
+            <ResourceCard
+              key={makeKey(card.title)}
+              title={card.title}
+              link={card.link}
+              description={card.description}
+              bgImage={bgImage}
+            />
+          ))}
+        </Stack>
+      </AccordionDetails>
+    </Accordion>
   )
 }
 

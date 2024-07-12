@@ -1,64 +1,81 @@
-import logoWhite from "assets/Logo/White.png";
-import BookConsultation from "../BookConsultation/BookConsultation";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Container, Grid, Typography, Box, Divider, Link as MuiLink, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import LogoLink from 'components/LogoLink/LogoLink';
+import BookConsultation from 'components/BookConsultation/BookConsultation';
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
-    <div className="w-full flex flex-col gap-10 lg:gap-20 px-12 pt-12 justify-center items-center bg-ngv-blue text-white">
-        <div className="w-full flex flex-col lg:flex-row lg:justify-between items-start gap-14">
-            {/* Company ID */}
-            <div className="flex flex-col gap-5">
-                <img src={logoWhite} alt="" className="w-14" />
-                <div>
-                    <p>Proudly serving our heroes</p>
-                    <p>We are a Virginia 501(c)3 nonprofit</p>
-                </div>
-                <BookConsultation variant />
-            </div>
-            {/* Info Blocks */}
-            <div className="flex flex-col lg:flex-row lg:justify-evenly lg:w-full gap-7">
-                {/* Services Block */}
-                <div className="flex flex-col gap-2">
-                    <h6>Services</h6>
-                    <div className="flex flex-col body-btn">
-                        <Link to="/bootcamp">IT Bootcamp</Link>
-                        <Link to="/resources">Resources</Link>
-                    </div>
-                </div>
-                {/* Organization Block */}
-                <div className="flex flex-col gap-2">
-                    <h6>Organization</h6>
-                    <div className="flex flex-col body-btn">
-                        <Link to="/about">About Us</Link>
-                        <Link to="/contact">Partner with Us</Link>
-                    </div>
-                </div>
-                {/* Legal Block */}
-                <div className="flex flex-col gap-2">
-                    <h6>Legal</h6>
-                    <div className="flex flex-col body-btn">
-                        <Link to="/terms-of-service">Terms of Service</Link>
-                        <Link to="/privacy-policy">Privacy Policy</Link>
-                    </div>
-                </div>
-                {/* Contact Block */}
-                <div className="flex flex-col gap-2">
-                    <h6>Contact</h6>
-                    <div className="flex flex-col body-btn">
-                        <Link to="tel:+18047188630">+1 (804) 718 8630</Link>
-                        <Link to="mailto:nxtgenveterans@gmail.com">nxtgenveterans@gmail.com</Link>
-                        <Link to="/contact" className="bg-white text-black px-4 py-1 my-2 w-fit rounded-lg">Contact Us</Link>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <Box component="footer" sx={{ width: '100%', bgcolor: 'primary.main', color: 'white', py: 3 }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={5} justifyContent="center" alignItems="flex-start">
+          {/* Company ID */}
+          <Grid item xs={12} lg={3}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: "fit-content" }}>
+              <LogoLink variant />
+              <Box>
+                <Typography>Proudly serving our heroes</Typography>
+                <Typography>We are a Virginia 501(c)3 nonprofit</Typography>
+              </Box>
+              <BookConsultation variant />
+            </Box>
+          </Grid>
+          {/* Info Blocks */}
+          <Grid item xs={12} lg={9}>
+            <Grid container spacing={5}>
+              {/* Services Block */}
+              <Grid item xs={12} md={3}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Typography variant="h6">Services</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <MuiLink component={Link} to="/bootcamp" color="inherit">IT Bootcamp</MuiLink>
+                    <MuiLink component={Link} to="/resources" color="inherit">Resources</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
+              {/* Organization Block */}
+              <Grid item xs={12} md={3}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Typography variant="h6">Organization</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <MuiLink component={Link} to="/about" color="inherit">About Us</MuiLink>
+                    <MuiLink component={Link} to="/contact" color="inherit">Partner with Us</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
+              {/* Legal Block */}
+              <Grid item xs={12} md={3}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Typography variant="h6">Legal</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <MuiLink component={Link} to="/terms-of-service" color="inherit">Terms of Service</MuiLink>
+                    <MuiLink component={Link} to="/privacy-policy" color="inherit">Privacy Policy</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
+              {/* Contact Block */}
+              <Grid item xs={12} md={3}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: "fit-content" }}>
+                  <Typography variant="h6">Contact</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <MuiLink href="tel:+18047188630" color="inherit">+1 (804) 718 8630</MuiLink>
+                    <MuiLink href="mailto:nxtgenveterans@gmail.com" color="inherit">nxtgenveterans@gmail.com</MuiLink>
+                    <Button component={Link} to="/contact" variant="contained" color="secondary">Contact Us</Button>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
         {/* Copyright */}
-        <div className="w-full h-fit flex flex-col justify-center items-center">
-            <hr className="w-full text-white" />
-            <p className="text-center p-5">Copyright © 2024 NXT Gen Veterans</p>
-        </div>
-    </div>
-  )
-}
+        <Box sx={{ width: '100%', mt: 5 }}>
+          <Divider sx={{ bgcolor: 'white' }} />
+          <Typography align="center" sx={{ py: 2 }}>Copyright © 2024 NXT Gen Veterans</Typography>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
 
-export default Footer
+export default Footer;
+
