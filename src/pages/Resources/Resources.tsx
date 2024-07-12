@@ -8,7 +8,7 @@ import { Stack } from "@mui/material"
 function Resources() {
   const [expanded, setExpanded] = useState<string | false>(false);
 
-  const handleToggleExpanded = (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => setExpanded(newExpanded ? panel : false);
+  const handleToggleExpanded = (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => { event; setExpanded(newExpanded ? panel : false) };
 
   return (
     <>
