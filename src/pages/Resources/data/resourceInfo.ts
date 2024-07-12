@@ -14,7 +14,7 @@ export interface ResourceGroupType {
 export const resources: ResourceGroupType[] = [
     {
         title: "Medical",
-        bgImage: "bg-[url('/assets/rsrc-med.png')]",
+        bgImage: "url('/assets/rsrc-med.png')",
         cards: [
             {
                 title: "U.S. Department of Veteran Affairs - Health Care",
@@ -35,7 +35,7 @@ export const resources: ResourceGroupType[] = [
     },
     {
         title: "Mental Health",
-        bgImage: "bg-[url('/assets/rsrc-mh.png')]",
+        bgImage: "url('/assets/rsrc-mh.png')",
         cards: [
             {
                 title: "U.S. Department of Veteran Affairs - Mental Health Services",
@@ -56,7 +56,7 @@ export const resources: ResourceGroupType[] = [
     },
     {
         title: "Housing",
-        bgImage: "bg-[url('/assets/rsrc-house.png')]",
+        bgImage: "url('/assets/rsrc-house.png')",
         cards: [
             {
                 title: "U.S. Department of Veteran Affairs - Homeless Programs",
@@ -82,7 +82,7 @@ export const resources: ResourceGroupType[] = [
     },
     {
         title: "Education & Training",
-        bgImage: "bg-[url('/assets/rsrc-edu.png')]",
+        bgImage: "url('/assets/rsrc-edu.png')",
         cards: [
             {
                 title: "Coursera",
@@ -138,7 +138,7 @@ export const resources: ResourceGroupType[] = [
     },
     {
         title: "Job Board",
-        bgImage: "bg-[url('/assets/rsrc-job.png')]",
+        bgImage: "url('/assets/rsrc-job.png')",
         cards: [
             {
                 title: "LinkedIn",
@@ -189,7 +189,7 @@ export const resources: ResourceGroupType[] = [
     },
     {
         title: "Financial",
-        bgImage: "bg-[url('/assets/rsrc-fin.png')]",
+        bgImage: "url('/assets/rsrc-fin.png')",
         cards: [
             {
                 title: "Military Pay - Regular Military Compensation (RMC) Calculator",
