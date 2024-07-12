@@ -1,14 +1,22 @@
-import { useGlobalStore } from "store"
+import { H2 } from "@/components/Headings/Headings";
+import { Stack, Typography } from "@mui/material";
 
 function StayTuned() {
-    const isPageScrolled = useGlobalStore(state => state.isPageScrolled);
   return (
-    <div className={`bg-ngv-blue text-white h-fit w-full pb-20 lg:py-32 ${isPageScrolled ? "pt-24" : "pt-16 lg:pt-24 border-t-[3.25rem] lg:border-t-[4.5rem] border-t-white/50"} flex flex-col items-center gap-8 px-4 md:px-6 lg:px-12`}>
-        <div className="text-center">
-            <h2 className="">Stay Tuned!</h2>
-            <p className="body-btn lg:sub-heading !font-bold">IT Bootcamp coming soon</p>
-        </div>
-        <p className="text-center w-4/5 lg:w-[min(70%,65rem)]">
+    <Stack
+      alignItems={'center'}
+      spacing={4}
+      sx={{
+        backgroundImage: theme => `linear-gradient(to bottom, ${theme.palette.primary.light}, ${theme.palette.secondary.light}, ${theme.palette.secondary.light}, ${theme.palette.primary.light})`,
+        px: { xs: 4, sm: 6, md: 10 },
+        py: 14,
+      }}
+    >
+      <Stack alignItems={'center'}>
+        <H2>Stay Tuned!</H2>
+        <Typography variant="h5" component="p" fontWeight={500}>IT Bootcamp coming soon</Typography>
+      </Stack>
+      <Typography align="center">
         Currently, we are in the process of developing content for our upcoming IT bootcamps. 
         These boot camps will offer 8 and 12-week programs covering various IT industries. 
         In the meantime, we're excited to announce that we've obtained permission from 
@@ -16,8 +24,8 @@ function StayTuned() {
         courses. Rest assured, we will keep you updated on our progress as we prepare to launch 
         our bootcamps. It's important to note that our IT bootcamps will only be accessible and 
         provided free of charge to our veterans.
-        </p>
-    </div>
+      </Typography>
+    </Stack>
   )
 }
 
