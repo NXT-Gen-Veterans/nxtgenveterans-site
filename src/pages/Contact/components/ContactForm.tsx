@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Button from "components/Button/Button";
-import { makeKey } from "store";
+import { makeKey } from "@/store";
 import { MenuItem, Select, SelectChangeEvent, Stack, TextField } from "@mui/material";
 
 export type ContactFormType = "Volunteer" | "Partner" | "General";

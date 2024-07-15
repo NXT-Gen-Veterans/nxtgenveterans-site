@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { makeKey, useGlobalStore, RouteType } from "store";
+import { makeKey, useGlobalStore, RouteType } from "@/store";
 import LogoLink from "components/LogoLink/LogoLink";
 import BookConsultation from "components/BookConsultation/BookConsultation";
 

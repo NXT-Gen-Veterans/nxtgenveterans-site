@@ -1,7 +1,7 @@
 import { ComponentType, ReactElement, useEffect, useRef } from 'react'
 import { useLocation } from "react-router-dom"
 
-import { RouteType, useGlobalStore } from 'store';
+import { RouteType, useGlobalStore } from '@/store';
 
 import Navbar from 'components/Navbar/Navbar'
 import Footer from 'components/Footer/Footer'

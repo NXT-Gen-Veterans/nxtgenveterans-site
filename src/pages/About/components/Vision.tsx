@@ -1,6 +1,6 @@
 import { H2 } from "@/components/Headings/Headings"
 import { Box, Stack, Theme, Typography, alpha } from "@mui/material"
-import { makeKey } from "store";
+import { makeKey } from "@/store";
 
 function Mission() {
   return (

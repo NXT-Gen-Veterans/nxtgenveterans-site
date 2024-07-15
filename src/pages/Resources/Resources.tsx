@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from "react";
-import { makeKey } from "store"
+import { makeKey } from "@/store"
 import ResourceGroup from "./components/ResourceGroup"
 import ResourceHero from "./components/ResourceHero"
 import { resources } from "./data/resourceInfo"

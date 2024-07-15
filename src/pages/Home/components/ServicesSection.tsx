@@ -2,7 +2,7 @@ import { H2 } from '@/components/Headings/Headings';
 import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import BookConsultation from "components/BookConsultation/BookConsultation";
 import Button from 'components/Button/Button';
-import { makeKey } from "store";
+import { makeKey } from "@/store";
 
 type Service = {
   title: string;

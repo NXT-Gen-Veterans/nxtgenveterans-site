@@ -1,7 +1,7 @@
 import { H2 } from '@/components/Headings/Headings';
 import { Box, colors, Stack, Typography, useTheme } from '@mui/material';
 import Button from "components/Button/Button";
-import { makeKey, useGlobalStore } from "store";
+import { makeKey, useGlobalStore } from "@/store";
 
 type Position = "tl" | "tr" | "bl" | "br";
 
