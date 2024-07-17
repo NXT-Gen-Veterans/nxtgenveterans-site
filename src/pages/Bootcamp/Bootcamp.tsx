@@ -1,4 +1,4 @@
-import { makeKey } from "store"
+import { makeKey } from "@/store"
 import { youtubeVideos } from "./data/LearningVideos"
 import YoutubeEmbed from "./components/YoutubeEmbed"
 import StayTuned from "./components/StayTuned"

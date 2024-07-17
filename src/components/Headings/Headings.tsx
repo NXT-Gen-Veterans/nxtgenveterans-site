@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { useGlobalStore } from "store";
+import { useGlobalStore } from "@/store";
 import { ReactNode } from "react";
 
 interface H2Props {

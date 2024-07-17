@@ -1,6 +1,6 @@
 import ResourceCard from "./ResourceCard";
 import { ResourceGroupType } from "../data/resourceInfo";
-import { makeKey } from "store";
+import { makeKey } from "@/store";
 import { Accordion, AccordionDetails, AccordionSummary, Stack } from "@mui/material";
 import { ArrowDropDown } from "@mui/icons-material";
 import { H3 } from "@/components/Headings/Headings";

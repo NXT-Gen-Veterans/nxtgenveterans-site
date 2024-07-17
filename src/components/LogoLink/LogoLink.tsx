@@ -4,7 +4,7 @@ import whiteLogo from "assets/Logo/White.png";
 import { Link } from "@mui/material";
 import { Link as NavLink } from "react-router-dom";
 
-import { useGlobalStore } from "store";
+import { useGlobalStore } from "@/store";
 
 interface LogoLinkProps {
     variant?: boolean
