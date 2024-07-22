@@ -5,7 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 function Contact() {
   const type = useRef(useParams().type);
-  const [formProps, setFormProps] = useState<{type: ContactFormType, thanks?: boolean}>({type: "General"});
+  const [thanks, setThanks] = useState(false);
+  const [formProps, setFormProps] = useState<{
+    type: ContactFormType,
+    parentThanksSetter: (state: boolean) => void
+  }>({ type: "General", parentThanksSetter: setThanks });
 
   useEffect(() => {
 
@@ -16,7 +20,7 @@ function Contact() {
       ? type.current
       : "General"
   
-    setFormProps({ type: formType });
+    setFormProps(state => ({ ...state, type: formType }));
 
   }, [setFormProps])
 
@@ -28,7 +32,7 @@ function Contact() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: type.current === "Thanks" ? "500px" : { xs: '1100px', sm: '1020px', md: '900px' },
+        height: thanks ? "500px" : { xs: '1100px', sm: '1020px', md: '900px' },
         width: '100%',
         textAlign: 'center',
         pt: { xs: 12, md: 16 },

@@ -6,7 +6,7 @@ import { Box, CircularProgress, Link, MenuItem, Select, SelectChangeEvent, Stack
 import { H2 } from "@/components/Headings/Headings";
 
 
-function ContactForm({type}: ContactFormProps) {
+function ContactForm({type, parentThanksSetter}: ContactFormProps) {
 
   const [formPurpose, setFormPurpose] = useState<FormPurposeType>({
     title: "",
@@ -87,6 +87,7 @@ function ContactForm({type}: ContactFormProps) {
       setIsLoading(false);
       if (response.ok) {
         setIsThanks(true);
+        parentThanksSetter(true);
       } else {
         return response.json().then(err => {
           throw new Error(err.message || 'Form response not ok');
@@ -246,6 +247,7 @@ export type ContactFormType = "Volunteer" | "Partner" | "General";
 
 interface ContactFormProps {
   type: ContactFormType;
+  parentThanksSetter: (state: boolean) => void;
 }
 
 interface FormPurposeType {
