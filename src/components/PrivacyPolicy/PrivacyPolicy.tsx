@@ -155,12 +155,11 @@ export default function PrivacyPolicy(props: PrivacyPolicyProps) {
                       If you have any questions about this Privacy Policy, please contact us at:
                     </Typography>
 
-                    <Stack mt={1}>
+                    <Stack>
                       <Typography>NXT Gen Veterans</Typography>
-                      <Typography>[address]</Typography>
-                      <Typography>Leesburg, VA [ZIP Code]</Typography>
-                      <Link href="">[email]</Link>
-                      <Link href="">[phone number]</Link>
+                      <Typography>Leesburg, VA {import.meta.env.VITE_ORG_ZIP_CODE}, US</Typography>
+                      <Link target="_blank" rel="noopener noreferrer" href={`mailto:${import.meta.env.VITE_ORG_EMAIL}`}>{import.meta.env.VITE_ORG_EMAIL}</Link>
+                      <Link target="_blank" rel="noopener noreferrer" href={`tel:${import.meta.env.VITE_ORG_PHONE}`}>{import.meta.env.VITE_ORG_PHONE_TEXT}</Link>
                     </Stack>
                   </Paper>
                 </DialogContent>
