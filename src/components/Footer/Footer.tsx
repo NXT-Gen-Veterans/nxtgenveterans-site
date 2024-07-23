@@ -3,6 +3,8 @@ import { Container, Grid, Typography, Box, Divider, Link as MuiLink, Button } fr
 import { Link } from 'react-router-dom';
 import LogoLink from 'components/LogoLink/LogoLink';
 import BookConsultation from 'components/BookConsultation/BookConsultation';
+import TermsOfUse from '../TermsOfUse/TermsOfUse';
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 
 const Footer: React.FC = () => {
   return (
@@ -48,8 +50,8 @@ const Footer: React.FC = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                   <Typography variant="h6">Legal</Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <MuiLink component={Link} to="/terms-of-service" color="inherit">Terms of Service</MuiLink>
-                    <MuiLink component={Link} to="/privacy-policy" color="inherit">Privacy Policy</MuiLink>
+                    <TermsOfUse color="inherit" width="fit-content" />
+                    <PrivacyPolicy color="inherit" width="fit-content" />
                   </Box>
                 </Box>
               </Grid>

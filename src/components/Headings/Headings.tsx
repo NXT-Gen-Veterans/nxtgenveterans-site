@@ -2,11 +2,11 @@ import { Typography } from "@mui/material";
 import { useGlobalStore } from "@/store";
 import { ReactNode } from "react";
 
-interface H2Props {
+interface HeadingProps {
   children: ReactNode;
 }
 
-export function H2({ children }: H2Props) {
+export function H2({ children }: HeadingProps) {
   const largeScreen = useGlobalStore(state => state.screen) == "lg";
   return (
     <Typography variant={largeScreen ? "h4" : "h5"} component="h2" fontWeight="bold">
@@ -15,11 +15,7 @@ export function H2({ children }: H2Props) {
   )
 } 
 
-interface H3Props {
-  children: ReactNode;
-}
-
-export function H3({ children }: H3Props) {
+export function H3({ children }: HeadingProps) {
   const largeScreen = useGlobalStore(state => state.screen) == "lg";
   return (
     <Typography variant={largeScreen ? "h5" : "h6"} component="h3" fontWeight={600}>
