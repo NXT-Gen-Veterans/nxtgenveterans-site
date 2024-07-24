@@ -2,11 +2,13 @@ import { FormEvent, useEffect, useState } from "react";
 
 import Button from "components/Button/Button";
 import { makeKey } from "@/store";
-import { Box, CircularProgress, Link, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from "@mui/material";
+import { Box, CircularProgress, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from "@mui/material";
 import { H2 } from "@/components/Headings/Headings";
+import PrivacyPolicy from "@/components/PrivacyPolicy/PrivacyPolicy";
+import TermsOfUse from "@/components/TermsOfUse/TermsOfUse";
 
 
-function ContactForm({type}: ContactFormProps) {
+function ContactForm({type, parentThanksSetter}: ContactFormProps) {
 
   const [formPurpose, setFormPurpose] = useState<FormPurposeType>({
     title: "",
@@ -61,19 +63,6 @@ function ContactForm({type}: ContactFormProps) {
 
     const body = JSON.stringify({
       fields,
-      legalConsentOptions: {
-        consent: {
-          consentToProcess: true,
-          text: "I agree to allow NXT Gen Veterans to store and process my personal data.",
-          communications: [
-            {
-              value: true,
-              subscriptionTypeId: 999,
-              text: "I agree to receive marketing communications from NXT Gen Veterans."
-            }
-          ]
-        }
-      }
     });
 
     fetch(import.meta.env.VITE_FORM_ACTION, {
@@ -87,6 +76,7 @@ function ContactForm({type}: ContactFormProps) {
       setIsLoading(false);
       if (response.ok) {
         setIsThanks(true);
+        parentThanksSetter(true);
       } else {
         return response.json().then(err => {
           throw new Error(err.message || 'Form response not ok');
@@ -225,10 +215,10 @@ function ContactForm({type}: ContactFormProps) {
               />
             </Stack>
 
-            <Box mt={4} px={{xs:2,sm:4}}>
-              <Typography sx={{fontSize: 10, lineHeight: 1.5}} textAlign={{xs:'justify', sm:'center'}} id="ewf_datadisclaimer">
-                We use HubSpot as an automation service. By submitting this form, you agree that the information you provide will be transferred to HubSpot for processing in accordance with their&nbsp;
-                <Link href="https://legal.hubspot.com/privacy-policy" target="_blank">Privacy Policy</Link>.
+            <Box mt={4} px={{xs:2,sm:2}}>
+              <Typography sx={{fontSize: 10, lineHeight: 1.5}} textAlign={{xs:'justify', sm:'center'}}>
+                By submitting this form, you agree that the information you provide will be processed in accordance with our&nbsp;
+                <PrivacyPolicy /> and <TermsOfUse />.
               </Typography>
             </Box>
 
@@ -246,6 +236,7 @@ export type ContactFormType = "Volunteer" | "Partner" | "General";
 
 interface ContactFormProps {
   type: ContactFormType;
+  parentThanksSetter: (state: boolean) => void;
 }
 
 interface FormPurposeType {

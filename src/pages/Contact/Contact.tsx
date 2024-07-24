@@ -5,7 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 function Contact() {
   const type = useRef(useParams().type);
-  const [formProps, setFormProps] = useState<{type: ContactFormType, thanks?: boolean}>({type: "General"});
+  const [thanks, setThanks] = useState(false);
+  const [formProps, setFormProps] = useState<{
+    type: ContactFormType,
+    parentThanksSetter: (state: boolean) => void
+  }>({ type: "General", parentThanksSetter: setThanks });
 
   useEffect(() => {
 
@@ -16,7 +20,7 @@ function Contact() {
       ? type.current
       : "General"
   
-    setFormProps({ type: formType });
+    setFormProps(state => ({ ...state, type: formType }));
 
   }, [setFormProps])
 
@@ -28,7 +32,7 @@ function Contact() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: type.current === "Thanks" ? "500px" : { xs: '1100px', sm: '1020px', md: '900px' },
+        height: thanks ? "500px" : { xs: '1100px', sm: '1020px', md: '900px' },
         width: '100%',
         textAlign: 'center',
         pt: { xs: 12, md: 16 },
@@ -41,8 +45,8 @@ function Contact() {
       <ContactForm {...formProps} />
       <Stack alignItems="center" justifyContent="center">
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ md: 2 }} alignItems="center" justifyContent="center">
-          <Link href="tel:+18047188630" target="_blank" rel="noopener noreferrer">+1 (804) 718 8630</Link>
-          <Link href="mailto:nxtgenveterans@gmail.com" target="_blank" rel="noopener noreferrer">nxtgenveterans@gmail.com</Link>
+          <Link target="_blank" rel="noopener noreferrer" href={`tel:${import.meta.env.VITE_ORG_PHONE}`}>{import.meta.env.VITE_ORG_PHONE_TEXT}</Link>
+          <Link target="_blank" rel="noopener noreferrer" href={`mailto:${import.meta.env.VITE_ORG_EMAIL}`}>{import.meta.env.VITE_ORG_EMAIL}</Link>
         </Stack>
         <Typography fontWeight={'medium'}>Headquarters in Leesburg, Virginia</Typography>
       </Stack>
