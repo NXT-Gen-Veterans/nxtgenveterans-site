@@ -1,8 +1,9 @@
 import { H2 } from '@/components/Headings/Headings';
-import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardMedia, CardContent, Typography, Grow } from '@mui/material';
 import BookConsultation from "components/BookConsultation/BookConsultation";
 import Button from 'components/Button/Button';
 import { makeKey } from "@/store";
+import { useEffect, useRef, useState } from 'react';
 
 type Service = {
   title: string;
@@ -11,12 +12,12 @@ type Service = {
   btnText?: string;
 };
 
-type ServiceCardProps = {
+interface ServiceCardProps {
   service: Service;
   index: number;
-};
+}
 
-function ServiceCard({ service, index }: ServiceCardProps) {
+function ServiceCard ({ service, index }: ServiceCardProps) {
   return (
     <Card sx={{ display: 'flex', width: 'fit-content', flexDirection: 'column', alignItems: 'center', gap: 1, boxShadow: 0 }}>
       <Box
@@ -56,6 +57,9 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 }
 
 function ServicesSection() {
+  const [transition, startTransition] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+
   const services: Service[] = [
     {
       title: "IT Bootcamp",
@@ -75,8 +79,26 @@ function ServicesSection() {
     },
   ];
 
+  useEffect(() => {
+    if (!containerRef.current) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        startTransition(entry.isIntersecting);
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+    
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    }
+  }, [containerRef])
+
   return (
-    <Box component="section" sx={{
+    <Box component="section" ref={containerRef} sx={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -85,6 +107,7 @@ function ServicesSection() {
       textAlign: 'center',
       py: 8,
       px: 5,
+      overflow: "hidden",
     }}>
       <H2>
         We meet you where you are
@@ -98,7 +121,9 @@ function ServicesSection() {
         gap: {xs: 5, lg: 6 },
       }}>
         {services.map((service, index) => (
-          <ServiceCard key={makeKey(service.title)} service={service} index={index} />
+          <Grow key={makeKey(service.title)} in={transition} {...(transition ? {timeout: 700 * (index + 1)} : {})} style={{ transformOrigin: '0 0 0'}}>
+            {ServiceCard({service, index})}
+          </Grow>
         ))}
       </Box>
     </Box>

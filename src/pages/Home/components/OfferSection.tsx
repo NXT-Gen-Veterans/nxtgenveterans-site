@@ -1,7 +1,8 @@
 import { H2 } from '@/components/Headings/Headings';
-import { Box, colors, Stack, Typography, useTheme } from '@mui/material';
+import { Box, colors, Slide, Stack, Typography, useTheme } from '@mui/material';
 import Button from "components/Button/Button";
 import { makeKey, useGlobalStore } from "@/store";
+import { useEffect, useRef, useState } from 'react';
 
 type Position = "tl" | "tr" | "bl" | "br";
 
@@ -55,7 +56,10 @@ const DecorativeDiv = ({ withImage, imageAlt, position }: DecorativeDivProps) =>
 };
 
 function OfferSection() {
-  const largeScreen = useGlobalStore(state => state.screen) == "lg";
+  const [transition, startTransition] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+
+  const lg = useGlobalStore(state => state.screen) == "lg";
   const positions: Position[] = ["tl", "tr", "bl", "br"];
 
   const handleRenderDecorativeDivs = (position: Position) => {
@@ -68,17 +72,37 @@ function OfferSection() {
     );
   };
 
+  useEffect(() => {
+    if (!containerRef.current) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        startTransition(entry.isIntersecting);
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+    
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    }
+  }, [])
+
   return (
     <Stack
+      ref={containerRef}
       component="section"
       sx={theme => ({
         background: 'rgba(255, 255, 255, 0.4)',
         backgroundBlendMode: 'overlay',
-        backgroundImage: `linear-gradient(to ${largeScreen ? "bottom" : "bottom left"}, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+        backgroundImage: `linear-gradient(to ${lg ? "bottom" : "bottom left"}, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
         py: 7,
         px: 5,
         p: { xl: 12 },
         userSelect: 'none',
+        overflow: 'hidden',
       })}
       direction={'row'}
       alignItems={'center'}
@@ -114,23 +138,25 @@ function OfferSection() {
         { positions.slice(2).map(handleRenderDecorativeDivs) }
         </Box>
       </Stack>
-      <Stack
-        width={{
-          md: "80%",
-          lg: "min(40%,31rem)"
-        }}
-        alignItems={{ xs: 'center', lg: 'start' }}
-        textAlign={{ xs: 'center', lg: 'left' }}
-        gap={5}
-      >
-        <H2>Let us be your next step</H2>
-        <Typography>
-          We are dedicated to providing the most up-to-date educational tools and resources for the men and women who have served our country,
-          helping them transition into the civilian workforce with ease and at no cost. We aim to make our resources easily accessible and free of charge,
-          as a tribute and gesture of gratitude for their sacrifices. We are truly grateful and thankful for their service.
-        </Typography>
-        <Button link="/contact">Get in touch</Button>
-      </Stack>
+      <Slide {...(lg ? {direction: "left"} : {direction:"up"})} in={transition} {...(transition ? {timeout: 500} : {})} container={containerRef.current}>
+        <Stack
+          width={{
+            md: "80%",
+            lg: "min(40%,31rem)"
+          }}
+          alignItems={{ xs: 'center', lg: 'start' }}
+          textAlign={{ xs: 'center', lg: 'left' }}
+          gap={5}
+        >
+          <H2>Let us be your next step</H2>
+          <Typography>
+            We are dedicated to providing the most up-to-date educational tools and resources for the men and women who have served our country,
+            helping them transition into the civilian workforce with ease and at no cost. We aim to make our resources easily accessible and free of charge,
+            as a tribute and gesture of gratitude for their sacrifices. We are truly grateful and thankful for their service.
+          </Typography>
+          <Button link="/contact">Get in touch</Button>
+        </Stack>
+      </Slide>
     </Stack>
   );
 }
