@@ -1,19 +1,11 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import { InlineWidget } from "react-calendly";
 
 import CloseIcon from "@mui/icons-material/Close";
-import { AppBar, Button, ButtonProps, Dialog, DialogContent, IconButton, Slide, Toolbar } from "@mui/material";
-import { TransitionProps } from '@mui/material/transitions';
-import { H2 } from "../Headings/Headings";
+import { AppBar, Button, ButtonProps, Dialog, DialogContent, IconButton, Toolbar } from "@mui/material";
 
-const Transition = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+import { H2 } from "../Headings/Headings";
+import Transition from "../Transition/Transition";
 
 interface BookConsultationProps {
     variant?: boolean;

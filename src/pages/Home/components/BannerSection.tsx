@@ -1,21 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box, Stack, Typography } from '@mui/material';
 import OdometerComponent from "components/Odometer/Odometer";
 import { H2 } from "@/components/Headings/Headings";
 
 function BannerSection() {
     const [value, setValue] = useState(0);
+    const containerRef = useRef<HTMLElement>(null);
   
     useEffect(() => {
-        const interval = setInterval(() => {
-            setValue(200);
-        }, 3000);
-
-        return () => clearInterval(interval);
+      if (!containerRef.current) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setValue(entry.isIntersecting ? 200 : 0);
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+      
+      observer.observe(containerRef.current);
+  
+      return () => {
+        observer.disconnect();
+      }
     }, []);
 
   return (
     <Stack
+      ref={containerRef}
       component="section"
       direction={{ md: 'row-reverse' }}
       justifyContent={{ xs: 'space-around', xl: 'center' }}
