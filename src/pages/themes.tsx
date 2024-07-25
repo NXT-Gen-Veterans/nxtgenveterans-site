@@ -4,14 +4,14 @@ export const globalTheme = createTheme({
     palette: {
         primary: {
         light: "#B0D4FF",
-        main: "#020281",
-        dark: "#0202CC",
+        main: "#057dce",
+        dark: "#0363bc",
         contrastText: "#ededed",
         },
         secondary: {
         light: "#B5E3FF",
-        main: "#f0f0f0",
-        dark: "#c9bce2",
+        main: "#eef1ff",
+        dark: "#ebe0f0",
         contrastText: "#0f0f0f",
         },
     },

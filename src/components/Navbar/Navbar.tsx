@@ -23,9 +23,9 @@ function Navbar() {
     const routes: RouteType[] = ['home', 'about', 'contact', 'resources', 'bootcamp'];
 
     const navStyles = { 
-        backgroundColor: isPageScrolled ? "rgba(255,255,255,.5)" : "transparent",
+        backgroundColor: isPageScrolled ? "rgba(255,255,255,.6)" : "transparent",
         boxShadow: "none",
-        backdropFilter: isPageScrolled ? "blur(20px)" : "",
+        backdropFilter: isPageScrolled ? "blur(40px)" : "",
     };
 
     function handleDrawerToggle() {
@@ -66,7 +66,7 @@ function Navbar() {
                 variant="persistent"
                 PaperProps={{
                     sx: {
-                        bgcolor: "#020281",
+                        bgcolor: "primary.main",
                         width: "min(70dvw,20rem)",
                         padding: "1rem",
                         alignItems: "start",

@@ -1,5 +1,5 @@
 import { H2 } from '@/components/Headings/Headings';
-import { Typography, Button, Stack } from '@mui/material';
+import { Typography, Button, Stack, alpha, colors } from '@mui/material';
 
 function PartnerSection() {
   return (
@@ -7,6 +7,8 @@ function PartnerSection() {
       component="section"
       sx={{
         backgroundImage: 'url(/assets/partner.png)',
+        bgcolor: alpha(colors.cyan[200], 0.3),
+        backgroundBlendMode: "soft-light",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',

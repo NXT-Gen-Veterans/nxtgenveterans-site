@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import Button from "components/Button/Button";
 import { makeKey } from "@/store";
-import { Box, CircularProgress, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from "@mui/material";
+import { alpha, Box, CircularProgress, MenuItem, Select, SelectChangeEvent, Stack, TextField, Typography } from "@mui/material";
 import { H2 } from "@/components/Headings/Headings";
 import PrivacyPolicy from "@/components/PrivacyPolicy/PrivacyPolicy";
 import TermsOfUse from "@/components/TermsOfUse/TermsOfUse";
@@ -31,7 +31,7 @@ function ContactForm({type, parentThanksSetter}: ContactFormProps) {
   const inputProps = {
     sx: {
       "& .MuiInputBase-root": {
-        bgcolor: "secondary.main",
+        bgcolor: alpha("#fff", .7),
       }
     },
     fullWidth: true,
@@ -218,7 +218,7 @@ function ContactForm({type, parentThanksSetter}: ContactFormProps) {
             <Box mt={4} px={{xs:2,sm:2}}>
               <Typography sx={{fontSize: 10, lineHeight: 1.5}} textAlign={{xs:'justify', sm:'center'}}>
                 By submitting this form, you agree that the information you provide will be processed in accordance with our&nbsp;
-                <PrivacyPolicy /> and <TermsOfUse />.
+                <PrivacyPolicy fontWeight="bold" /> and <TermsOfUse fontWeight="bold" />.
               </Typography>
             </Box>
 

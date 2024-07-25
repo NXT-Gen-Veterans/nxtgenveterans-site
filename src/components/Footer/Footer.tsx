@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Button, Divider, Link as MuiLink, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LogoLink from 'components/LogoLink/LogoLink';
@@ -7,7 +6,7 @@ import TermsOfUse from '../TermsOfUse/TermsOfUse';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 import { Email, LinkedIn, Phone } from '@mui/icons-material';
 
-const Footer: React.FC = () => {
+export default function Footer() {
   return (
     <Stack
       component="footer"
@@ -15,9 +14,9 @@ const Footer: React.FC = () => {
       p={5}
       px={{md:7}}
       width="100%"
-      bgcolor="primary.main"
-      color="white"
+      color="black"
       sx={{
+        backgroundImage: theme => `linear-gradient(to bottom, ${theme.palette.primary.light}, ${theme.palette.secondary.light}, ${theme.palette.secondary.light}, ${theme.palette.primary.light})`,
         "& a": {
           lineBreak: "strict"
         }
@@ -27,12 +26,12 @@ const Footer: React.FC = () => {
         {/* Company ID */}
         <Stack minWidth="fit-content">
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: "fit-content" }}>
-            <LogoLink variant />
+            <LogoLink />
             <Box>
               <Typography>Proudly serving our heroes</Typography>
               <Typography>We are a Virginia 501(c)3 nonprofit</Typography>
             </Box>
-            <BookConsultation variant />
+            <BookConsultation />
           </Box>
         </Stack>
         {/* Info Blocks */}
@@ -77,19 +76,17 @@ const Footer: React.FC = () => {
                 <LinkedIn sx={{mr:1}} />
                 LinkedIn
               </MuiLink>
-              <Button component={Link} to="/contact" variant="contained" color="secondary" sx={{mt:2}}>Contact Us</Button>
+              <Button component={Link} to="/contact" variant="contained" color="primary" sx={{mt:2}}>Contact Us</Button>
             </Stack>
           </Stack>
         </Stack>
       </Stack>
       {/* Copyright */}
       <Box sx={{ width: '100%', mt: 5 }}>
-        <Divider sx={{ bgcolor: 'white' }} />
+        <Divider />
         <Typography align="center" sx={{ py: 2 }}>Copyright © 2024 NXT Gen Veterans</Typography>
       </Box>
     </Stack>
   );
-};
-
-export default Footer;
+}
 

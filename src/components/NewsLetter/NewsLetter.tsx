@@ -150,7 +150,7 @@ function NewsLetter() {
             <Box mt={4} px={{xs:2,sm:2}}>
               <Typography sx={{fontSize: 10, lineHeight: 1.5}} textAlign={{xs:'justify', sm:'center'}}>
                 By submitting this form, you agree that the information you provide will be processed in accordance with our&nbsp;
-                <PrivacyPolicy /> and <TermsOfUse />.
+                <PrivacyPolicy fontWeight="bold" /> and <TermsOfUse fontWeight="bold" />.
               </Typography>
             </Box>
             <Box mt={4} display='flex' justifyContent='center'>

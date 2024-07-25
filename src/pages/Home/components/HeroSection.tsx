@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { alpha, Box, Button, colors, Stack, Typography } from "@mui/material";
 import BookConsultation from "components/BookConsultation/BookConsultation";
 
 function HeroSection() {
   return (
     <Box component="section" sx={{ 
       backgroundImage: "url('/assets/hero.png')",
-      bgcolor: "#e3f2fd80", // colors.blue[100] at 50% alpha transparency
+      bgcolor: alpha(colors.teal[100], 0.5),
       backgroundBlendMode: "soft-light",
       backgroundPosition: "right",
       backgroundRepeat: "no-repeat",
@@ -14,10 +14,10 @@ function HeroSection() {
      }}>
       <Stack
         px={{ xs: '1.5rem', lg: '3rem' }}
-        py={{ xs: '4rem', lg: '6rem'}}
+        py={{ xs: '6rem', md: '7rem' }}
         spacing={2}
       >
-        <Typography variant="subtitle2" component="p">
+        <Typography variant="h5" component="p">
           Welcome to NXT Gen Veterans
         </Typography>
 
@@ -31,7 +31,7 @@ function HeroSection() {
           </Typography>
         </Box>
 
-        <Typography variant="subtitle1" component="p">
+        <Typography variant="h6" fontWeight={500} component="p">
           We assist you on your next career step. Book a one-on-one consultation with a  member of our team to get started!
         </Typography>
 
