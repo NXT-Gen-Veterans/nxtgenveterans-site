@@ -14,7 +14,7 @@ export default function LogoLink(props: LogoLinkProps) {
     const { setNavTabValue } = useGlobalStore(state => state);
     return (
         <Link component={NavLink} to="/" onClick={() => {setNavTabValue("home")}} sx={{ width: "fit-content" }}>
-            <img src={props.variant ? whiteLogo : blackLogo} alt="logo" className={`w-14 lg:w-16`} />
+            <img src={props.variant ? whiteLogo : blackLogo} alt="logo" className={`w-14 md:w-16 lg:w-20`} />
         </Link>
     )
 }
