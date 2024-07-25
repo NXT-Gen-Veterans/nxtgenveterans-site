@@ -3,7 +3,6 @@ import Mission from "./components/Mission"
 import Vision from "./components/Vision"
 import Founder from "./components/Founder"
 import Dei from "./components/DEI"
-import Contribute from "./components/Contribute"
 
 
 function About() {
@@ -14,7 +13,6 @@ function About() {
       <Vision />
       <Founder />
       <Dei />
-      <Contribute />
     </>
   )
 }

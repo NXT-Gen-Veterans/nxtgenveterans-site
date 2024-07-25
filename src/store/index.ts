@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export type RouteType = "home" | "about" | "contact" | "resources" | "bootcamp";
-export type ScreenType = "lg" | "md" | "sm";
+export type ScreenType = "lg" | "md" | "sm" | "xs";
 
 type GlobalState = {
     isPageScrolled: boolean;

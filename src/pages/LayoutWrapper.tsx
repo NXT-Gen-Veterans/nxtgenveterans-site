@@ -20,8 +20,9 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
   const {pathname} = useLocation();
   const pageRef = useRef<HTMLDivElement>(null);
   const {setPageScrolled, isPageScrolled, navTabValue, setNavTabValue, setScreenValue} = useGlobalStore(state => state);
-  const largeScreen = useMediaQuery("(min-width:1024px)");
-  const tabletScreen = useMediaQuery("(min-width:768px)");
+  const lgScreen = useMediaQuery("(min-width:1200px)");
+  const mdScreen = useMediaQuery("(min-width:900px)");
+  const smScreen = useMediaQuery("(min-width:600px)");
 
 
   // Reset scroll position on navigation
@@ -43,10 +44,11 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
 
   // Set the viewport width globally
   useEffect(() => {
-    if (largeScreen) { setScreenValue("lg") }
-    else if (tabletScreen) { setScreenValue("md") }
-    else { setScreenValue("sm") }
-  }, [largeScreen, tabletScreen, setScreenValue])
+    if (lgScreen) { setScreenValue("lg") }
+    else if (mdScreen) { setScreenValue("md") }
+    else if (smScreen) { setScreenValue("sm") }
+    else { setScreenValue("xs") }
+  }, [lgScreen, mdScreen, smScreen, setScreenValue])
 
   // Handle page scroll state for navbar aesthetic effects
   function handleScroll() {
