@@ -34,7 +34,7 @@ function Contact() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        height: thanks ? "500px" : { xs: '1100px', sm: '1020px', md: '900px' },
+        height: thanks ? "500px" : { xs: '1200px', sm: '1120px', md: '1000px' },
         width: '100%',
         textAlign: 'center',
         pt: { xs: 12, md: 16 },
