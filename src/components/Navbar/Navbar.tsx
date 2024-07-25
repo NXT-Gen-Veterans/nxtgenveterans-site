@@ -23,9 +23,9 @@ function Navbar() {
     const routes: RouteType[] = ['home', 'about', 'contact', 'resources', 'bootcamp'];
 
     const navStyles = { 
-        backgroundColor: isPageScrolled ? "rgba(255,255,255,.7)" : "transparent",
+        backgroundColor: isPageScrolled ? "rgba(255,255,255,.6)" : "transparent",
         boxShadow: "none",
-        backdropFilter: isPageScrolled ? "blur(30px)" : "",
+        backdropFilter: isPageScrolled ? "blur(40px)" : "",
     };
 
     function handleDrawerToggle() {
