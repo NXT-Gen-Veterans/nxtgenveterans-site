@@ -19,8 +19,8 @@ function ResourceCard({title, link, description, bgImage}:ResourceCardProps) {
         <ReactCardFlip containerStyle={{width: md ? 'min(45%, 35rem)' : '100%' }} flipDirection="horizontal" isFlipped={isFlipped}>
             <CardTemplate {...templateProps}>
                 <Stack height={'100%'} justifyContent="center" alignItems="center" spacing={2}>
-                    <Typography variant="h6" component="h6" fontWeight="bold">{title}</Typography>
-                    <Link fontWeight="bold" href={link} target="_blank" rel="noopener noreferrer" sx={{wordBreak: 'break-all'}}>{link}</Link>
+                    <Typography variant="h6" component="h6" fontWeight="bold" sx={{wordBreak: {xs: 'break-all', sm: 'break-word'}}}>{title}</Typography>
+                    <Link fontWeight="bold" href={link} target="_blank" rel="noopener noreferrer">Go to site</Link>
                 </Stack>
             </CardTemplate>
             <CardTemplate {...templateProps}>
