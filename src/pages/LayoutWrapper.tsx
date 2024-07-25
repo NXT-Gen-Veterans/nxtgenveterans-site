@@ -68,7 +68,7 @@ function LayoutWrapper({ ComponentPage }: LayoutWrapperProps): ReactElement {
           aria-labelledby={`${navTabValue}-tab`}
         >
           <ComponentPage />
-          {pathname == "/resources" ? "" : <NewsLetter />}
+          {["/resources", "/about"].includes(pathname) ? "" : <NewsLetter />}
           <Footer /> 
         </div>
       </div>
