@@ -14,7 +14,7 @@ function ThankYou() {
         for generously providing us with some of his tutorials. 
         For additional videos similar to these, please visit his YouTube channel.
       </Typography>
-      <Link fontWeight={'bold'} href="https://www.youtube.com/@programmingwithmosh" target="_blank" rel="noopener noreferrer">https://www.youtube.com/@programmingwithmosh</Link>
+      <Link sx={{wordBreak: "break-all"}} textAlign="center" fontWeight={'bold'} href="https://www.youtube.com/@programmingwithmosh" target="_blank" rel="noopener noreferrer">@programmingwithmosh</Link>
     </Stack>
   )
 }

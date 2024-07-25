@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { alpha, Box, Button, colors, Stack, Typography } from "@mui/material";
 import BookConsultation from "components/BookConsultation/BookConsultation";
 
 function HeroSection() {
   return (
     <Box component="section" sx={{ 
       backgroundImage: "url('/assets/hero.png')",
-      bgcolor: "#e3f2fd80", // colors.blue[100] at 50% alpha transparency
+      bgcolor: alpha(colors.teal[100], 0.5),
       backgroundBlendMode: "soft-light",
       backgroundPosition: "right",
       backgroundRepeat: "no-repeat",
