@@ -48,10 +48,10 @@ function ResourceGroup({title, bgImage, cards, toggleExpanded, expanded}: Resour
         <Stack
           direction={'row'}
           flexWrap={'wrap'}
-          spacing={{ xs: 2.5, md: 5 }}
+          spacing={{ xs: 2.5, md: 5, lg: 7 }}
           p={{ xs: 2.5, md: 5 }}
           useFlexGap
-          justifyContent={'center'}
+          justifyContent={{xs: 'center', md: 'space-between'}}
           alignItems={'space-between'}
         >
           {cards.map(card => (
