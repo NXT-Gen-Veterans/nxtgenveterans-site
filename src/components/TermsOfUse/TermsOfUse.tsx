@@ -1,20 +1,11 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
-import { AppBar, Dialog, DialogContent, IconButton, Link, LinkProps, List, ListItem, ListItemIcon, ListItemText, Paper, Slide, Stack, Toolbar, Typography } from "@mui/material";
-import { TransitionProps } from '@mui/material/transitions';
+import { AppBar, Dialog, DialogContent, IconButton, Link, LinkProps, List, ListItem, ListItemIcon, ListItemText, Paper, Stack, Toolbar, Typography } from "@mui/material";
+import Transition from "../Transition/Transition";
 import { H2, H3 } from "../Headings/Headings";
 import { Circle } from "@mui/icons-material";
 import { makeKey } from "@/store";
-
-const Transition = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 interface TermsOfUseProps extends LinkProps {}
 
